@@ -323,13 +323,6 @@ function PHEDrawPropselectHalos()
 end
 hook.Add("PreDrawHalos", "PHEDrawPropselectHalos", PHEDrawPropselectHalos)
 
--- Play random taunt
-hook.Add("KeyPress", "tracetest.GetPropInfo", function(pl, key)
-	if ((pl:Team() == TEAM_PROPS && pl:Alive()) && key == IN_ATTACK2) then
-		LocalPlayer():ConCommand("gm_showspare1")
-	end
-end)
-
 -- Called every client frame
 function GM:Think()
 	-- Prop light
