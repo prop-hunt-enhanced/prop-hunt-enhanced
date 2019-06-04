@@ -237,7 +237,7 @@ function HUDPaint()
 	end
 	
 	-- Prop Crosshair
-	if GetConVar("ph_show_custom_crosshair"):GetBool() && LocalPlayer():Team() == TEAM_PROPS && LocalPlayer():Alive() then
+	if GetConVar("ph_show_custom_crosshair"):GetBool() && LocalPlayer():Team() == TEAM_PROPS && LocalPlayer():Alive() && !crosshair:IsError () then
 		local color
 		local trace = {}
 		if cHullz < 24 then
@@ -345,10 +345,10 @@ end
 -- 			Net Receives Hooks 			--
 -- ///////////////////\\\\\\\\\\\\\\\\\ --
 
-local tutormat = "vgui/hud_control_help.png"
+local tutormat = Material ("vgui/hud_control_help.png")
 local curshow = 0
 net.Receive("PH_ShowTutor", function()
-	if GetConVar("ph_show_tutor_control"):GetBool() && LocalPlayer():Alive() then
+	if GetConVar("ph_show_tutor_control"):GetBool() && LocalPlayer():Alive() && !tutormat:IsError () then
 	
 		if curshow <= 2 then
 	
@@ -362,7 +362,7 @@ net.Receive("PH_ShowTutor", function()
 			bg:SetBackgroundColor( Color( 16, 16, 16, 180 ) )
 			
 			local image = vgui.Create( "DImage", bg )
-			image:SetImage(tutormat)
+			image:SetMaterial(tutormat)
 			image:Dock(FILL)
 			
 			xNotify:AddItem(bg)

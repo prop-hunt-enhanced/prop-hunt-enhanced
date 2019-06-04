@@ -49,11 +49,6 @@ local hide = {
 	["CHudAmmo"]	= true,
 	["CHudSecondaryAmmo"] = true
 }
-hook.Add("HUDShouldDraw", "PHE.ShouldHideHUD", function(hudname)
-	if GetConVar("ph_hud_use_new"):GetBool() then
-		if (hide[hudname]) then return false end
-	end
-end)
 
 local curteam
 local mat = {
@@ -86,6 +81,12 @@ local bar = {
 	am = { h = 5, col = Color(80,190,255,220) }
 }
 
+hook.Add("HUDShouldDraw", "PHE.ShouldHideHUD", function(hudname)
+	if GetConVar("ph_hud_use_new"):GetBool() && !matw:IsError () then
+		if (hide[hudname]) then return false end
+	end
+end)
+
 local Rstate = 0
 net.Receive("PHE.rotateState", function() Rstate = net.ReadInt(2) end)
 
@@ -106,6 +107,11 @@ local disabledcolor = Color(100,100,100,255)
 hook.Add("HUDPaint", "PHE.MainHUD", function()
 	
 	if GetConVar("ph_hud_use_new"):GetBool() then state = true else state = false end;
+
+	-- Don't draw if materials didn't load correctly
+	if matw:IsError () && state then
+		state = false
+	end
 	
 	if IsValid(LocalPlayer()) && LocalPlayer():Alive() && state && (LocalPlayer():Team() == TEAM_HUNTERS or LocalPlayer():Team() == TEAM_PROPS) then
 		-- Begin Player Info
