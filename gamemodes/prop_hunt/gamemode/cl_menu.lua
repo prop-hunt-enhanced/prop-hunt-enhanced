@@ -249,6 +249,32 @@ function ph_BaseMainWindow(ply, cmd, args)
 				print(cmd.." -> Ph:CreateVGUIType FAILED! - 'data' argument must containt Entity userdata value \n  --> Got "..type(data).." instead!!")
 			end
 		end
+
+		-- Binder
+		if typ == "binder" then
+			local pnl = vgui.Create ("DPanel")
+			pnl:SetSize(panel:GetColWide(),panel:GetRowHeight() - 6)
+			pnl.Paint = function () end
+
+			local binder = pnl:Add ("DBinder")
+			binder:Dock (LEFT)
+			binder:SetWide (75)
+			-- Update values
+			binder:SetValue (GetConVar (cmd):GetInt ())
+			-- Make it change convar
+			binder.OnChange = function (this, num)
+				RunConsoleCommand (cmd, num)
+				chat.AddText(Color(200, 0, 0), "[Settings]", color_white, " Cvar '" .. cmd .. "' has been changed to " .. num .. " (" .. input.GetKeyName (num) .. ")")
+				surface.PlaySound("buttons/button9.wav")
+			end
+			-- Text
+			local label = pnl:Add ("DLabel")
+			label:Dock (FILL)
+			label:DockMargin (9, 0, 0, 0)
+			label:SetText (text)
+
+			panel:AddItem (pnl)
+		end
 	end
 	
 	function Ph:HelpSelections()
@@ -488,6 +514,7 @@ function ph_BaseMainWindow(ply, cmd, args)
 		Ph:CreateVGUIType("ph_cl_spec_hunter_line", "check", "CLIENT", gridpl, "Draw a line on hunters so we can see their aim in spectator mode.")
 		Ph:CreateVGUIType("cl_enable_luckyballs_icon", "check", "CLIENT", gridpl, "Enable 'Lucky ball' icon to be displayed once they are spawned")
 		Ph:CreateVGUIType("cl_enable_devilballs_icon", "check", "CLIENT", gridpl, "Enable 'Devil ball' icon to be displayed once they are spawned")
+		Ph:CreateVGUIType("ph_cl_taunt_key", "binder", "CLIENT", gridpl, "Button to play a random taunt")
 		Ph:CreateVGUIType("hudspacer","spacer",nil,gridpl,"" )
 		Ph:CreateVGUIType("", "label", false, gridpl, "HUD Settings")
 		Ph:CreateVGUIType("ph_hud_use_new", "check", "CLIENT", gridpl, "Use New PH: Enhanced HUD")
