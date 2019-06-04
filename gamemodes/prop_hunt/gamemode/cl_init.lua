@@ -9,6 +9,7 @@ CreateClientConVar("ph_hud_use_new", "1", true, false, "Use new PH: Enhanced HUD
 CreateClientConVar("ph_show_team_topbar", "1", true, false, "Show total alive team players bar on the top left (Experimental)")
 CreateClientConVar("ph_show_custom_crosshair","1",true,false,"Show custom crosshair for props")
 CreateClientConVar("ph_show_tutor_control","1",true,false,"Show 'Prop Gameplay Control' hud on each prop spawns. This only show twice and reset until map changes/user disconnect.")
+CreateClientConVar("ph_cl_taunt_key","95",true,true,"Key to play a random taunt or open the taunts menu depending on server settings.")
 
 surface.CreateFont( "HunterBlindLockFont",
 	{
