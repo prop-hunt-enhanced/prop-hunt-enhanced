@@ -433,8 +433,7 @@ net.Receive("CL2SV_ExchangeProp", function(len, ply)
 	-- OBSOLETE : THIS IS COMMENTED OUT BECAUSE THIS METHOD IS SILLY AND SHOULD NOT BE USED. --yeah kind of my fault! >.<
 end)
 
--- Called when player presses [F3]. Plays a taunt for their team
-function GM:ShowSpare1(pl)
+function DoPlayerTaunt(pl)
 	if (GetConVar("ph_enable_custom_taunts"):GetInt() == 1) && GAMEMODE:InRound() then
 		pl:ConCommand("ph_showtaunts")
 	end
@@ -460,6 +459,14 @@ function GM:ShowSpare1(pl)
 		pl:EmitSound(rand_taunt, 100)
 		pl:SetNWFloat("LastTauntTime", CurTime())
 	end	
+end
+
+-- Called when player presses any button
+function GM:PlayerButtonDown (pl, button)
+	-- Stop if player isn't alive or button is not the one the player binded
+	if !pl:Alive () || button != pl:GetInfoNum ("ph_cl_taunt_key", KEY_F4) then return end
+
+	DoPlayerTaunt (pl)
 end
 
 -- Called when a player leaves
@@ -766,6 +773,10 @@ function PlayerPressedKey(pl, key)
 					pl.UseTime = CurTime() + 1
 				end
 			end
+		end
+
+		if key == IN_ATTACK2 then
+			DoPlayerTaunt (pl)
 		end
 	end
 	
