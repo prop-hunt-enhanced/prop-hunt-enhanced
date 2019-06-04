@@ -165,7 +165,7 @@ hook.Add("HUDPaint", "PHE.MainHUD", function()
 		surface.DrawTexturedRect( pos.x + (168), pos.y + 74, 32, 32 )
 		
 		if LocalPlayer():Team() == TEAM_HUNTERS then
-			surface.SetDrawColor(disabledcolor)
+			surface.SetDrawColor(indic.light[LocalPlayer ():FlashlightIsOn () && 1 || 0])
 		else
 			surface.SetDrawColor( indic.light[CL_GLOBAL_LIGHT_STATE] )
 		end
