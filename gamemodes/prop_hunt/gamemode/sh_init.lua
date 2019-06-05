@@ -57,7 +57,7 @@ GM.Name		= "Prop Hunt: ENHANCED"
 GM.Author	= "Wolvindra-Vinzuerio & D4UNKN0WNM4N2010"
 
 GM._VERSION = "15"
-GM.REVISION	= "J"
+GM.REVISION	= "K"
 GM.DONATEURL = "https://prophunt.wolvindra.net/go/donate_go.php?gamemodeonly=true"
 GM.UPDATEURL = "https://raw.githubusercontent.com/Vinzuerio/ph-enhanced/master/updates/version.json"
 
