@@ -253,7 +253,7 @@ function ph_BaseMainWindow(ply, cmd, args)
 		-- Binder
 		if typ == "binder" then
 			local pnl = vgui.Create ("DPanel")
-			pnl:SetSize(panel:GetColWide(),panel:GetRowHeight() - 6)
+			pnl:SetSize(panel:GetColWide(),panel:GetRowHeight() - 12)
 			pnl.Paint = function () end
 
 			local binder = pnl:Add ("DBinder")
