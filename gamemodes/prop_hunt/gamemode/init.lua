@@ -40,8 +40,8 @@ PHE.UPDATE_CVAR_TO_VARIABLE = 0
 PHE.SPECTATOR_CHECK = 0
 
 -- Player Join/Leave message
-gameevent.Listen( "player_connect" )
-hook.Add( "player_connect", "AnnouncePLJoin", function( data )
+gameevent.Listen( "player_authed" )
+hook.Add( "player_authed", "AnnouncePLJoin", function( data )
 	for k, v in pairs( player.GetAll() ) do
 		v:PrintMessage( HUD_PRINTTALK, data.name .. " has connected to the server." )
 	end
