@@ -86,7 +86,7 @@ function GM:CheckPlayerDeathRoundEnd()
 	end
 
 	if table.Count(Teams) == 1 then
-		local TeamID = Teams [1]
+		local TeamID = table.GetFirstKey (Teams)
 		-- debug
 		MsgAll("Round Result: " .. team.GetName(TeamID) .. " (" .. TeamID .. ") Wins!\n")
 		-- End Round
