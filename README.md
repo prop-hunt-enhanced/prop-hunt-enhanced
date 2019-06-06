@@ -15,6 +15,57 @@ The gamemode also includes several many major changes including the HUD, the cod
 
 The gamemode was contributted to the old Classic Prop Hunt as for the fixes on march 2015 update (which completely broken) with the viewmodel fix additions. The classic version may no longer be maintained anymore.
 
+## Key Features:
+-Prop Rotating
+-Freeze Cam
+-Camera Collision
+-Prop Halo
+-New Flashlight for Prop
+-Random & Custom Skin
+-Fixed Viewmodels
+-New Weapons
+-New item: Lucky Balls
+-New function: extra plugins
+-New item: Custom/Auto Taunt
+-New random death strings
+-Improved UI
+-And more...
+
+## Armor 
+Both teams can have armor. Hunters will gain extra armor from a lucky ball. Props team will gain extra armor depending on how many hunters are present. The more Hunters present, the more Armor points for props will gain. The armor points will be set randomly.
+Both teams can also obtain some Armor (battery suit armor) that spawns naturally on some maps.
+
+## Armor Durability 
+Both team have fixed Armor Durability. Each time hunters shoot the wrong props they will lose 15 Armor. Props however will lose 30 armor if they are attacked by Hunters.
+
+## Fixed Camera Collision 
+Cameras are now more reliable. Smaller prop will now have proper views when up close. This prevents being able to see under the map
+
+## Left Mouse Click "Accurate" Disguiser 
+This feature will help you to aim at props and accurately become a prop instead of using the "E" button. As long as the corsshair is on the correct prop, it is 100% accurate.
+
+## Right Mouse Click Random Taunt 
+This will play a random taunt by default by right-clicking.
+
+## Lucky Balls 
+Lucky balls have a random chance to spawn when an item is broken by a Hunter. Hunters can then pick these up to get a variety of items (custom rewards are possible through the gamemode files)
+
+## Devil Crystal 
+Spawn on a Hunter's corpse and can be picked up by props! Same thing as lucky 
+
+## Accurate Hitboxes
+Thanks to Client Prediction and Registered Damage info, hitboxes for props are now more accurate.
+
+## Smooth Prop Rotation
+Self Explanitory. No more laggy prop rotation for everyone.
+
+## Auto Taunt 
+Self Explanationary. Automatically plays taunts at specified interval.
+
+## Player/Admin (Gamemode) Settings are now just by Single-Click 
+All configuration can be done by using F1 > Prop Hunt Menu. Most server configuration is done here.Clientside player mute is also in this area.
+
+
 ### Available Links & Public Server Tests
 
 #### Available Servers
