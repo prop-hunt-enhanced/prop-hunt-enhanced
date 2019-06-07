@@ -290,7 +290,7 @@ function GM:PlayerExchangeProp(pl, ent)
 	if pl:Team() == TEAM_PROPS && pl:IsOnGround() && !pl:Crouching() && table.HasValue(PHE.USABLE_PROP_ENTITIES, ent:GetClass()) && ent:GetModel() then
 		if table.HasValue(PHE.BANNED_PROP_MODELS, ent:GetModel()) then
 			pl:ChatPrint("[PH: Enhanced] Notice: That prop has been banned from the server.")
-		elseif IsValid(ent:GetPhysicsObject()) && (pl.ph_prop:GetModel() != ent:GetModel() || pl.ph_prop:GetSkin() != ent:GetSkin()) then
+		elseif IsValid(ent:GetPhysicsObject()) && IsValid (pl.ph_prop) && (pl.ph_prop:GetModel() != ent:GetModel() || pl.ph_prop:GetSkin() != ent:GetSkin()) then
 			local ent_health = math.Clamp(ent:GetPhysicsObject():GetVolume() / 250, 1, 200)
 			local new_health = math.Clamp((pl.ph_prop.health / pl.ph_prop.max_health) * ent_health, 1, 200)
 			pl.ph_prop.health = new_health
