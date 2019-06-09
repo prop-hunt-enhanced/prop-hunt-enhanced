@@ -111,4 +111,4 @@ hook.Add( "PlayerSay", "RTV Chat Commands", function( ply, text )
 		return ""
 	end
 
-end )
+end, HOOK_HIGH )
