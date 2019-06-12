@@ -202,6 +202,14 @@
 			"type"		"Numeric"
 			"default"	"45"
 		}
+		22
+		{
+			"name"		"ph_hunter_smg_grenades"
+			"text"		"SMG Grenades"
+			"help"		"Grenades given to hunters"
+			"type"		"Numeric"
+			"default"	"1"
+		}
 	}
 
 }
