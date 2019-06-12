@@ -169,7 +169,7 @@ function ph_BaseMainWindow(ply, cmd, args)
 				slider:SetValue(dval)
 				slider:SetDecimals(dec)
 				slider.OnValueChanged = function(pnl,val)
-					slider:SetValue(val)
+					slider:SetValue(math.Round (val, dec))
 					if kind == "SERVER" then
 						net.Start("SvCommandSliderReq")
 						net.WriteString(cmd)
