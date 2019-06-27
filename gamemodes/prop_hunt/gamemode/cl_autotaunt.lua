@@ -33,11 +33,11 @@ local function outElastic(t, b, c, d, a, p)
 
 	if t == 1 then return b + c end
 
-	if not p then p = d * 0.3 end
+	if !p then p = d * 0.3 end
 
 	local s
 
-	if not a or a < math.abs(c) then
+	if !a || a < math.abs(c) then
 		a = c
 		s = p / 4
 	else
@@ -70,12 +70,12 @@ hook.Add("HUDPaint", "PH_AutoTauntPaint", AutoTauntPaint)
 
 local function RemoveTimer()
 	if timer.Exists(timerID) then
-		timer.Destroy(timerID)
+		timer.Remove(timerID)
 	end
 end
 
 local function CheckAutoTaunt()
-	local timeLeft = TimeLeft()
+	--local timeLeft = TimeLeft()
 	local ply = LocalPlayer()
 
 	-- Stop everything under these conditions
@@ -107,7 +107,7 @@ local function CheckPlayer()
 
 	if ply:Alive() && ply:Team() == TEAM_PROPS then
 		if timer.Exists(teamCheckTimer) then
-			timer.Destroy(teamCheckTimer)
+			timer.Remove(teamCheckTimer)
 		end
 
 		Setup()

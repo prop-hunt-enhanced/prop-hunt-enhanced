@@ -6,14 +6,14 @@ MapVote.Config = {}
 
 --Default Config
 MapVoteConfigDefault = {
-    MapLimit = 24,
-    TimeLimit = 28,
-    AllowCurrentMap = false,
-    EnableCooldown = true,
-    MapsBeforeRevote = 2,
-    RTVPlayerCount = 3,
-    MapPrefixes = {"ph_"}
-    }
+	MapLimit = 24,
+	TimeLimit = 28,
+	AllowCurrentMap = false,
+	EnableCooldown = true,
+	MapsBeforeRevote = 2,
+	RTVPlayerCount = 3,
+	MapPrefixes = {"ph_"}
+	}
 --Default Config
 
 local convarlist = {

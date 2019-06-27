@@ -8,9 +8,9 @@ end
 
 net.Receive("CL2SV_PlayThisTaunt", function(len, ply)
 	local snd = net.ReadString()
-	
+
 	if IsValid(ply) && !IsDelayed(ply) then
-		if file.Exists("sound/"..snd, "GAME") then
+		if file.Exists("sound/" .. snd, "GAME") then
 			ply:EmitSound(snd, 100)
 			ply:SetNWFloat("LastTauntTime", CurTime())
 		else
