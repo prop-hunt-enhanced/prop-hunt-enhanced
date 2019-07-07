@@ -74,7 +74,7 @@ function GM:CheckPlayerDeathRoundEnd()
 	local Teams = GAMEMODE:GetTeamAliveCounts()
 
 	if table.Count(Teams) == 0 then
-		GAMEMODE:RoundEndWithResult(1001, "Draw, everyone loses!")
+		GAMEMODE:RoundEndWithResult(1001, PHE.LANG.HUD.DRAW)
 		PHE.VOICE_IS_END_ROUND = 1
 		ForceCloseTauntWindow(1)
 
@@ -90,7 +90,7 @@ function GM:CheckPlayerDeathRoundEnd()
 		-- debug
 		MsgAll("Round Result: " .. team.GetName(TeamID) .. " (" .. TeamID .. ") Wins!\n")
 		-- End Round
-		GAMEMODE:RoundEndWithResult(TeamID, team.GetName(TeamID) .. " win!")
+		GAMEMODE:RoundEndWithResult(TeamID, string.Replace(PHE.LANG.HUD.WIN, "{TEAM}", team.GetName(TeamID)))
 		PHE.VOICE_IS_END_ROUND = 1
 		ForceCloseTauntWindow(1)
 
@@ -545,7 +545,7 @@ function GM:RoundTimerEnd()
 		return
 	end
 
-	GAMEMODE:RoundEndWithResult(TEAM_PROPS, "Props win!")
+	GAMEMODE:RoundEndWithResult(TEAM_PROPS, string.Replace(LANG.HUD.PROPSWIN, "{PROPS}", "Props"))
 	PHE.VOICE_IS_END_ROUND = 1
 	ForceCloseTauntWindow(1)
 
@@ -575,7 +575,7 @@ function GM:OnPreRoundStart(num)
 					end
 				end
 
-			pl:ChatPrint("Teams have been swapped!")
+			pl:ChatPrint(PHE.LANG.CHAT.SWAP)
 			end
 		end
 

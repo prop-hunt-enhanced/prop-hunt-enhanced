@@ -5,6 +5,7 @@ LANG = {}
 LANG.Code = "es"
 LANG.Name = "español"
 LANG.NameEnglish = "spanish"
+
 LANG.Help = [[	Un modo de juego mejorado basado en el clasico 'Prop Hunt'
 
 	Para ver mas ayuda, abra el 'Menu de Prop Hunt'.
@@ -24,7 +25,12 @@ LANG.HUD.HEALTH = "SALUD"
 LANG.HUD.AMMO = "MUNICION"
 LANG.HUD.TIME = "TIEMPO"
 LANG.HUD.ROUND = "RONDA"
+
 LANG.HUD.WAIT = "Esperando jugadores..."
+LANG.HUD.WIN = "{TEAM} ganan!"
+LANG.HUD.PROPSWIN = "{PROPS} ganan!"
+LANG.HUD.DRAW = "Empate, todos pierden!"
+
 LANG.HUD.BLINDTIME = "Los Hunters serán liberados en "
 LANG.HUD.BLINDEND = "Listos o no, ahi vamos!"
 
@@ -58,6 +64,7 @@ LANG.DERMA.PING = "Ping" -- No hay traduccion creo
 LANG.CHAT = {}
 
 LANG.CHAT.NOTENOUGHPLYS = "No hay suficientes jugadores para comenzar el juego!"
+LANG.CHAT.SWAP = "Los equipos se intercambiaron!"
 
 LANG.CHAT.JOINED = " se unió a "
 LANG.CHAT.JOINEDTHE = " se unió a los "
