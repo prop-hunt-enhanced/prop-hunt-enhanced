@@ -271,7 +271,7 @@ function GM:ShowTeam()
 	if ( !IsValid( TeamPanel ) ) then 
 	
 		TeamPanel = vgui.CreateFromTable( vgui_Splash )
-		TeamPanel:SetHeaderText( "Choose Team" )
+		TeamPanel:SetHeaderText( PHE.LANG.DERMA.TEAMSELECT )
 
 		local AllTeams = team.GetAllTeams()
 		for ID, TeamInfo in SortedPairs ( AllTeams ) do

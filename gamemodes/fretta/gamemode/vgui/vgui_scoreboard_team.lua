@@ -27,7 +27,7 @@ function PANEL:Think()
 	local Count = #team.GetPlayers( self.iTeamID )
 	if ( self.PlayerCount != Count ) then
 		self.PlayerCount = Count
-		self.TeamName:SetText( team.GetName( self.iTeamID ) .. " (" .. self.PlayerCount .. " Players)" )
+		self.TeamName:SetText( team.GetName( self.iTeamID ) .. " (" .. self.PlayerCount .. PHE.LANG.DERMA.PLAYERS .. ")" )
 	end
 	
 	self.TeamScore:SetText( team.GetScore( self.iTeamID ) )

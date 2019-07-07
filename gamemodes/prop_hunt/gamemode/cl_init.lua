@@ -152,9 +152,9 @@ function HUDPaint()
 		local blindlock_time_left = (GetConVar("ph_hunter_blindlock_time"):GetInt() - (CurTime() - GetGlobalFloat("RoundStartTime", 0))) + 1
 
 		if blindlock_time_left < 1 && blindlock_time_left > -6 then
-			blindlock_time_left_msg = "Ready or not, here we come!"
+			blindlock_time_left_msg = PHE.LANG.HUD.BLINDEND
 		elseif blindlock_time_left > 0 then
-			blindlock_time_left_msg = "Hunters will be unblinded and released in " .. string.ToMinutesSeconds(blindlock_time_left)
+			blindlock_time_left_msg = PHE.LANG.HUD.BLINDTIME .. string.ToMinutesSeconds(blindlock_time_left)
 		else
 			blindlock_time_left_msg = nil
 		end

@@ -713,7 +713,7 @@ function GM:RoundStart()
 
 				SetGlobalFloat( "RoundEndTime", -1 );
 
-				PrintMessage( HUD_PRINTTALK, "There's not enough players to start the game!" )
+				PrintMessage( HUD_PRINTTALK, PHE.LANG.CHAT.NOTENOUGHPLYS )
 				-- Reset the team score
 				team.SetScore(TEAM_PROPS, 0)
 				team.SetScore(TEAM_HUNTERS, 0)
