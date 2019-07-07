@@ -72,3 +72,6 @@ local obb_every = CreateConVar("ph_reload_obb_setting_everyround", "1",{ FCVAR_S
 
 -- This is for a temporary.
 local check_boundaries = CreateConVar("phe_check_props_boundaries", "0", { FCVAR_SERVER_CAN_EXECUTE, FCVAR_REPLICATED, FCVAR_ARCHIVE, FCVAR_NOTIFY }, "[EXPERIMENTAL] This feature is under Work-in-Progress! Enable prop boundaries Check? This will prevent you to stuck with other objects/Wall.")
+
+-- Language implementation
+local lang = CreateConVar("ph_language", "en", { FCVAR_SERVER_CAN_EXECUTE, FCVAR_REPLICATED, FCVAR_ARCHIVE, FCVAR_NOTIFY }, "Language of the server, requires map change.")

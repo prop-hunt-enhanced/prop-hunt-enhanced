@@ -29,7 +29,7 @@ function PANEL:Init()
 		self.pnlMain:EnableVerticalScrollbar()
 		
 	self.btnCancel = vgui.Create( "DButton", self )
-		self.btnCancel:SetText( "#Close" )
+		self.btnCancel:SetText( PHE.LANG.MISC.CLOSE )
 		self.btnCancel:SetSize( 100, 30 )
 		self.btnCancel:SetFGColor( Color( 0, 0, 0, 200 ) )
 		self.btnCancel:SetFont( "FRETTA_SMALL" )
