@@ -404,9 +404,7 @@ function GM:OnPlayerChangedTeam( ply, oldteam, newteam )
 		//  team that we chose
 		
 	end
-	
-	//PrintMessage( HUD_PRINTTALK, Format( "%s joined '%s'", ply:Nick(), team.GetName( newteam ) ) )
-	
+		
 	// Send net for team change
 	
 	net.Start("fretta_teamchange")
