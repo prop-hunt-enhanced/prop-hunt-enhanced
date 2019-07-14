@@ -2,15 +2,6 @@
 PHE = {}
 PHE.__index = PHE
 
--- Information about the gamemode
-GM.Name		= "Prop Hunt: ENHANCED"
-GM.Author	= "Wolvindra-Vinzuerio, D4UNKN0WNM4N2010, Fafy, Dralga & Zero"
-
-GM._VERSION = "16"
-GM.REVISION	= "A"
-GM.DONATEURL = "https://prophunt.wolvindra.net/?go=donate"
-GM.UPDATEURL = ""
-
 -- Initialize and Add ConVar Blocks.
 AddCSLuaFile("sh_convars.lua")
 include("sh_convars.lua")
@@ -64,6 +55,18 @@ include("sh_httpupdates.lua")
 -- Fretta!
 DeriveGamemode("fretta")
 IncludePlayerClasses()
+
+-- Information about the gamemode
+GM.Name		= "Prop Hunt: ENHANCED"
+GM.Author	= "Wolvindra-Vinzuerio, D4UNKN0WNM4N2010, Fafy, Dralga & Zero"
+
+GM._VERSION = "16"
+GM.REVISION	= "A"
+GM.DONATEURL = "https://prophunt.wolvindra.net/?go=donate"
+GM.UPDATEURL = ""
+
+-- Replace {values} on PHE.LANG.Help
+PHE.LANG.Help = string.Replace(string.Replace(PHE.LANG.Help, "{VERSION}", GM._VERSION), "{REVISION}", GM.REVISION)
 
 -- Fretta configuration
 GM.GameLength				= GetConVar("ph_game_time"):GetInt()

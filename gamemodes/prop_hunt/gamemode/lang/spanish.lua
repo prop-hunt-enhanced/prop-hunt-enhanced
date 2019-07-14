@@ -10,7 +10,7 @@ LANG.Help = [[	Un modo de juego mejorado basado en el clasico 'Prop Hunt'
 
 	Para ver mas ayuda, abra el 'Menu de Prop Hunt'.
 
-	Version: ]] .. GM._VERSION .. [[  Revision: ]] .. GM.REVISION .. [[ 
+	Version: {VERSION}  Revision: {REVISION} 
 		Que hay de nuevo:
 		- Soporte para multiples idiomas
 		- Mas opciones en el Menu de Prop Hunt
@@ -58,9 +58,9 @@ LANG.DERMA.PLAYERS = " Jugadores"
 LANG.DERMA.NAME = "Nombre"
 LANG.DERMA.KILLS = "Kills" -- Ayuda
 LANG.DERMA.DEATHS = "Muertes"
-LANG.DERMA.PING = "Ping" -- No hay traduccion creo
+LANG.DERMA.PING = "Ping" -- Latencia es muy largo y no entra
 
--- Chat
+-- Chat messages
 LANG.CHAT = {}
 
 LANG.CHAT.NOTENOUGHPLYS = "No hay suficientes jugadores para comenzar el juego!"
@@ -71,9 +71,47 @@ LANG.CHAT.JOINEDTHE = " se unió a los "
 
 LANG.CHAT.RANDOM_SPECTATORS = {
 	"para observar las cosas.",
+	"para disfrutar el caos.",
+	"para mirar y relajarse.",
 	".",
-	"para mirar y relajarse."
 }
+
+-- PHE Menu (F1 > PHE Menu)
+LANG.PHEMENU = {}
+
+
+LANG.PHEMENU.HELP = {}
+LANG.PHEMENU.HELP.TAB = "Ayuda (en ingles)"
+
+LANG.PHEMENU.MUTE = {}
+LANG.PHEMENU.MUTE.TAB = "Silenciar"
+
+LANG.PHEMENU.PLAYERMODEL = {}
+LANG.PHEMENU.PLAYERMODEL.TAB = "Modelo de jugador"
+
+LANG.PHEMENU.ADMINS = {}
+LANG.PHEMENU.ADMINS.TAB = "Administracion" -- Creo que queda mejor considerando el proposito de esa pestaña
+
+LANG.PHEMENU.MAPVOTE = {}
+LANG.PHEMENU.MAPVOTE.TAB = "MapVote"
+
+LANG.PHEMENU.ABOUT = {}
+
+LANG.PHEMENU.ABOUT.CURRENTVER = "Version actual: "
+LANG.PHEMENU.ABOUT.CURRENTREV = "Revision actual: "
+LANG.PHEMENU.ABOUT.ENJOYING = "Si estas disfrutando el juego, considera ayudarnos donando!"
+LANG.PHEMENU.ABOUT.LINKS = "Links y creditos"
+LANG.PHEMENU.ABOUT.THANKS = "Gracias especiales: " -- Necesito uno mejor
+LANG.PHEMENU.ABOUT.TAB = "Acerca de PHE"
+LANG.PHEMENU.ABOUT.DONATE = "Donar al proyecto PH:E"
+LANG.PHEMENU.ABOUT.HOME = "PH:E Pagina oficial"
+LANG.PHEMENU.ABOUT.GITHUB = "Repositorio GitHub"
+
+
+LANG.PHEMENU.TABS = {}
+LANG.PHEMENU.TABS.PLUGINS = "Plugins (BETA)"
+
+
 
 -- Saving
 PHE.LANGUAGES[LANG.Code] = LANG

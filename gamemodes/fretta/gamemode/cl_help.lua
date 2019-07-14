@@ -6,7 +6,7 @@ function GM:ShowHelp()
 	
 		Help = vgui.CreateFromTable( vgui_Splash )
 		Help:SetHeaderText( GAMEMODE.Name or "Untitled Gamemode" )
-		Help:SetHoverText( PHE.LANG.Help or GAMEMODE.Help or "No Help Avaliable" );
+		Help:SetHoverText( PHE.LANG.Help );
 		
 		Help.lblFooterText.Think = function( panel ) 
 										local tl = GAMEMODE:GetGameTimeLeft()
