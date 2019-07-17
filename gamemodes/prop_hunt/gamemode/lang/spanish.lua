@@ -25,8 +25,10 @@ LANG.HUD.HEALTH = "SALUD"
 LANG.HUD.AMMO = "MUNICION"
 LANG.HUD.TIME = "TIEMPO"
 LANG.HUD.ROUND = "RONDA"
+
 LANG.HUD.ROTLOCKON = "Prop Rotation Lock: Enabled"
 LANG.HUD.ROTLOCKOFF = "Prop Rotation Lock: Disabled"
+LANG.HUD.FREEZECAM = "Fuiste asesinado por %s"
 
 LANG.HUD.WAIT = "Esperando jugadores..."
 LANG.HUD.WIN = "%s ganan!"
@@ -34,6 +36,18 @@ LANG.HUD.DRAW = "Empate, todos pierden!"
 
 LANG.HUD.BLINDTIME = "Los Hunters serán liberados en "
 LANG.HUD.BLINDEND = "Listos o no, ahi vamos!"
+
+--  Kill text (X killed Y)
+LANG.DEATHNOTICE = {}
+LANG.DEATHNOTICE.KILLED = "mató a"
+
+LANG.DEATHNOTICE.SUICIDE = {
+	"se suicidó",
+	"se mató",
+	"esta borracho",
+	"murió por arte de magia",
+	"se tropezó con un palo",
+}
 
 -- Common
 LANG.MISC = {}
