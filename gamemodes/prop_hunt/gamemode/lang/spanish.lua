@@ -10,7 +10,7 @@ LANG.Help = [[	Un modo de juego mejorado basado en el clasico 'Prop Hunt'
 
 	Para ver mas ayuda, abra el 'Menu de Prop Hunt'.
 
-	Version: {VERSION}  Revision: {REVISION} 
+	Version: %u  Revision: %s
 		Que hay de nuevo:
 		- Soporte para multiples idiomas
 		- Mas opciones en el Menu de Prop Hunt
@@ -25,10 +25,11 @@ LANG.HUD.HEALTH = "SALUD"
 LANG.HUD.AMMO = "MUNICION"
 LANG.HUD.TIME = "TIEMPO"
 LANG.HUD.ROUND = "RONDA"
+LANG.HUD.ROTLOCKON = "Prop Rotation Lock: Enabled"
+LANG.HUD.ROTLOCKOFF = "Prop Rotation Lock: Disabled"
 
 LANG.HUD.WAIT = "Esperando jugadores..."
-LANG.HUD.WIN = "{TEAM} ganan!"
-LANG.HUD.PROPSWIN = "{PROPS} ganan!"
+LANG.HUD.WIN = "%s ganan!"
 LANG.HUD.DRAW = "Empate, todos pierden!"
 
 LANG.HUD.BLINDTIME = "Los Hunters serán liberados en "
@@ -39,7 +40,7 @@ LANG.MISC = {}
 
 LANG.MISC.ACCEPT = "Aceptar"
 LANG.MISC.CLOSE = "Cerrar"
-LANG.MISC.TIMELEFT = "Tiempo Restante: "
+LANG.MISC.TIMELEFT = "Tiempo Restante: %s"
 LANG.MISC.NOTIMELEFT = "El juego finalizara despues de esta ronda"
 
 -- Derma elements
@@ -54,7 +55,8 @@ LANG.DERMA.PHMENU = "Menu de Prop Hunt"
 LANG.DERMA.CHANGETEAM = "Cambiar de Equipo"
 
 -- Scoreboard
-LANG.DERMA.PLAYERS = " Jugadores"
+LANG.DERMA.PLAYER = "(%d jugador)"
+LANG.DERMA.PLAYERS = "(%d jugadores)"
 LANG.DERMA.NAME = "Nombre"
 LANG.DERMA.KILLS = "Kills" -- Ayuda
 LANG.DERMA.DEATHS = "Muertes"

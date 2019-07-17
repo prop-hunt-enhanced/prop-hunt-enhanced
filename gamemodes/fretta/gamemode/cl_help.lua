@@ -14,7 +14,7 @@ function GM:ShowHelp()
 										if( GetGlobalBool( "IsEndOfGame", false ) ) then panel:SetText( "Game has ended..." ) return end
 										if( GAMEMODE.RoundBased && CurTime() > GAMEMODE:GetTimeLimit() ) then panel:SetText( PHE.LANG.MISC.NOTIMELEFT ) return end
 										
-										panel:SetText( PHE.LANG.MISC.TIMELEFT .. util.ToMinutesSeconds( tl ) ) 
+										panel:SetText( string.format(PHE.LANG.MISC.TIMELEFT, string.ToMinutesSeconds( tl )) )
 									end
 
 		if ( GetConVarNumber( "fretta_voting" ) != 0 ) then

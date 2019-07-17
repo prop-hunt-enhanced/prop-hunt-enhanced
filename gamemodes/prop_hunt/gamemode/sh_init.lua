@@ -65,8 +65,8 @@ GM.REVISION	= "A"
 GM.DONATEURL = "https://prophunt.wolvindra.net/?go=donate"
 GM.UPDATEURL = ""
 
--- Replace {values} on PHE.LANG.Help
-PHE.LANG.Help = string.Replace(string.Replace(PHE.LANG.Help, "{VERSION}", GM._VERSION), "{REVISION}", GM.REVISION)
+-- Format PHE.LANG.Help
+PHE.LANG.Help = string.format(PHE.LANG.Help, GM._VERSION, GM.REVISION)
 
 -- Fretta configuration
 GM.GameLength				= GetConVar("ph_game_time"):GetInt()

@@ -90,7 +90,7 @@ function GM:CheckPlayerDeathRoundEnd()
 		-- debug
 		MsgAll("Round Result: " .. team.GetName(TeamID) .. " (" .. TeamID .. ") Wins!\n")
 		-- End Round
-		GAMEMODE:RoundEndWithResult(TeamID, string.Replace(PHE.LANG.HUD.WIN, "{TEAM}", team.GetName(TeamID)))
+		GAMEMODE:RoundEndWithResult(TeamID, string.format(PHE.LANG.HUD.WIN, team.GetName(TeamID)))
 		PHE.VOICE_IS_END_ROUND = 1
 		ForceCloseTauntWindow(1)
 
@@ -545,7 +545,7 @@ function GM:RoundTimerEnd()
 		return
 	end
 
-	GAMEMODE:RoundEndWithResult(TEAM_PROPS, string.Replace(LANG.HUD.PROPSWIN, "{PROPS}", "Props"))
+	GAMEMODE:RoundEndWithResult(TEAM_PROPS, string.format(LANG.HUD.WIN, "Props"))
 	PHE.VOICE_IS_END_ROUND = 1
 	ForceCloseTauntWindow(1)
 
@@ -778,13 +778,13 @@ function PlayerPressedKey(pl, key)
 		if key == IN_RELOAD then
 			if pl:GetPlayerLockedRot() then
 				pl:SetNWBool("PlayerLockedRotation", false)
-				pl:PrintMessage(HUD_PRINTCENTER, "Prop Rotation Lock: Disabled")
+				pl:PrintMessage(HUD_PRINTCENTER, PHE.LANG.HUD.ROTLOCKOFF)
 				net.Start("PHE.rotateState")
 					net.WriteInt(0, 2)
 				net.Send(pl)
 			else
 				pl:SetNWBool("PlayerLockedRotation", true)
-				pl:PrintMessage(HUD_PRINTCENTER, "Prop Rotation Lock: Enabled")
+				pl:PrintMessage(HUD_PRINTCENTER, PHE.LANG.HUD.ROTLOCKON)
 				net.Start("PHE.rotateState")
 					net.WriteInt(1, 2)
 				net.Send(pl)

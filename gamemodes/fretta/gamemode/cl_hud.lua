@@ -109,7 +109,7 @@ function GM:UpdateHUD_RoundResult( RoundResult, Alive )
 	
 	if ( type( RoundResult ) == "number" ) && ( team.GetAllTeams()[ RoundResult ] && txt == "" ) then
 		local TeamName = team.GetName( RoundResult )
-		if ( TeamName ) then txt = string.Replace(PHE.LANG.HUD.WAIT, "{TEAM}", TeamName) end
+		if ( TeamName ) then txt = string.format(PHE.LANG.HUD.WIN, TeamName) end
 	elseif ( type( RoundResult ) == "Player" && IsValid( RoundResult ) && txt == "" ) then
 		txt = RoundResult:Name() .. " Wins!"
 	end
