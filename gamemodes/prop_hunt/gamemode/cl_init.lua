@@ -154,7 +154,7 @@ function HUDPaint()
 		if blindlock_time_left < 1 && blindlock_time_left > -6 then
 			blindlock_time_left_msg = PHE.LANG.HUD.BLINDEND
 		elseif blindlock_time_left > 0 then
-			blindlock_time_left_msg = PHE.LANG.HUD.BLINDTIME .. string.ToMinutesSeconds(blindlock_time_left)
+			blindlock_time_left_msg = string.format(PHE.LANG.HUD.BLINDTIME, string.ToMinutesSeconds(blindlock_time_left))
 		else
 			blindlock_time_left_msg = nil
 		end

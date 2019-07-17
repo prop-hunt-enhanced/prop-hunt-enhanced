@@ -34,7 +34,7 @@ LANG.HUD.WAIT = "Esperando jugadores..."
 LANG.HUD.WIN = "%s ganan!"
 LANG.HUD.DRAW = "Empate, todos pierden!"
 
-LANG.HUD.BLINDTIME = "Los Hunters serán liberados en "
+LANG.HUD.BLINDTIME = "Los Hunters serán liberados en %s"
 LANG.HUD.BLINDEND = "Listos o no, ahi vamos!"
 
 --  Kill text (X killed Y)
