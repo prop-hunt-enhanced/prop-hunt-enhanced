@@ -381,7 +381,7 @@ function GM:PlayerUse(pl, ent)
 	if pl.UseTime <= CurTime() then
 
 		local hmx, hz = ent:GetPropSize()
-		if GetConVar("phe_check_props_boundaries"):GetBool() && !pl:CheckHull(hmx, hmx, hz) then
+		if pl:Team() == TEAM_PROPS && GetConVar("phe_check_props_boundaries"):GetBool() && !pl:CheckHull(hmx, hmx, hz) then
 			pl:SendLua("chat.AddText(Color(235, 10, 15), \"[PH: Enhanced]\", Color(220, 220, 220), \" There is no room to change that prop!\")")
 		else
 			self:PlayerExchangeProp(pl, ent)
