@@ -113,7 +113,25 @@ LANG.PHEMENU.ADMINS = {}
 LANG.PHEMENU.ADMINS.TAB = "Admins"
 
 LANG.PHEMENU.MAPVOTE = {}
+
 LANG.PHEMENU.MAPVOTE.TAB = "MapVote"
+LANG.PHEMENU.MAPVOTE.SETTINGS = "MapVote Settings"
+
+LANG.PHEMENU.MAPVOTE.mv_allowcurmap = "Allow Current map to be Voted"
+LANG.PHEMENU.MAPVOTE.mv_cooldown = "Enable map Cooldown for voting"
+LANG.PHEMENU.MAPVOTE.mv_use_ulx_votemaps = "Use map listing from ULX Mapvote? If not, default maps/*.bsp will be used."
+LANG.PHEMENU.MAPVOTE.mv_maplimit = "Number of Maps to be shown in MapVote."
+LANG.PHEMENU.MAPVOTE.mv_timelimit = "Time in Seconds for default mapvote when voting."
+LANG.PHEMENU.MAPVOTE.mv_mapbeforerevote = "Map changes needed for a map to reappear"
+LANG.PHEMENU.MAPVOTE.mv_rtvcount = "How many players required to use RTV (Rock the Vote)"
+
+LANG.PHEMENU.MAPVOTE.EXPLANATION1 = "To Setup which map should be listed, use (for example) [ mv_mapprefix 'ph_,cs_,de_' ] in the console."
+LANG.PHEMENU.MAPVOTE.EXPLANATION2 = "If you are unable to do a MapVote, you NEED to install ULX Admin Mod!"
+LANG.PHEMENU.MAPVOTE.EXPLANATION3 = "MapVote Action (To cancel, simply type !unmap_vote in the chat or type 'unmap_vote' in console)"
+
+LANG.PHEMENU.MAPVOTE.START = "Start MapVote"
+LANG.PHEMENU.MAPVOTE.STOP = "Stop MapVote"
+--                   YOU VIOLATED THE LAW!
 
 LANG.PHEMENU.ABOUT = {}
 

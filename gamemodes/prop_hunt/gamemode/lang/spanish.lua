@@ -47,6 +47,7 @@ LANG.DEATHNOTICE.SUICIDE = {
 	"esta borracho",
 	"murió por arte de magia",
 	"se tropezó con un palo",
+	"murió misteriosamente",
 }
 
 -- Common
@@ -92,7 +93,7 @@ LANG.CHAT.RANDOM_SPECTATORS = {
 	".",
 }
 
--- PHE Menu (F1 > PHE Menu)
+-- // ** PHE Menu (F1 > PHE Menu) ** // --
 LANG.PHEMENU = {}
 
 
@@ -109,7 +110,24 @@ LANG.PHEMENU.ADMINS = {}
 LANG.PHEMENU.ADMINS.TAB = "Administracion" -- Creo que queda mejor considerando el proposito de esa pestaña
 
 LANG.PHEMENU.MAPVOTE = {}
+
 LANG.PHEMENU.MAPVOTE.TAB = "MapVote"
+LANG.PHEMENU.MAPVOTE.SETTINGS = "Opciones de MapVote"
+
+LANG.PHEMENU.MAPVOTE.mv_allowcurmap = "Permitir el mapa actual en la votacion"
+LANG.PHEMENU.MAPVOTE.mv_cooldown = "Enable map Cooldown for voting" -- No se ni que hace?
+LANG.PHEMENU.MAPVOTE.mv_use_ulx_votemaps = "Usar lista de mapas de ULX? Si nó, se usaran mapas de maps/*.bsp."
+LANG.PHEMENU.MAPVOTE.mv_maplimit = "Cantidad de mapas para mostrar en el MapVote."
+LANG.PHEMENU.MAPVOTE.mv_timelimit = "Tiempo en segundos para el MapVote."
+LANG.PHEMENU.MAPVOTE.mv_mapbeforerevote = "Cambios necesarios para que un mapa aparezca otra vez"
+LANG.PHEMENU.MAPVOTE.mv_rtvcount = "Cuantos jugadores se necesitan para cambiar el mapa (RTV)?"
+
+LANG.PHEMENU.MAPVOTE.EXPLANATION1 = "Para configurar que mapas deberian aparecer, utilize (por ejemplo) [ mv_mapprefix 'ph_,cs_,de_' ] en la consola."
+LANG.PHEMENU.MAPVOTE.EXPLANATION2 = "Si no puedes comenzar un MapVote, DEBES instalar ULX Admin Mod!"
+LANG.PHEMENU.MAPVOTE.EXPLANATION3 = "Para cancelar el MapVote, escribe !unmap_vote en el chat (o unmap_vote en la consola)"
+
+LANG.PHEMENU.MAPVOTE.START = "Comenzar MapVote"
+LANG.PHEMENU.MAPVOTE.STOP = "Parar MapVote"
 
 LANG.PHEMENU.ABOUT = {}
 
