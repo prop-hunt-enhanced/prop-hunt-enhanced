@@ -135,6 +135,10 @@ function ph_BaseMainWindow(ply, cmd, args)
 					btn:SizeToContents()
 					btn:SetSize(btn:GetWide() + 8,btn:GetTall())
 					btn.DoClick = f
+
+					if data.wide then
+						btn:SetWide(data.wide)
+					end
 				end
 
 				for i = 1,legal do
@@ -547,38 +551,38 @@ function ph_BaseMainWindow(ply, cmd, args)
 	function Ph:ShowAdminMenu()
 		local panel,grid = Ph:CreateBasicLayout(Color(40,40,40,180),tab)
 
-		Ph:CreateVGUIType("", "label", false, grid, "Serverside gamemode Options (Only visible for Admins/Owner)")
-		Ph:CreateVGUIType("ph_use_custom_plmodel", "check", "SERVER", grid, "Enable custom models for Hunters")
-		Ph:CreateVGUIType("ph_use_custom_plmodel_for_prop", "check", "SERVER", grid, "Enable custom models for Props - Make sure to enable for Hunter too.")
-		Ph:CreateVGUIType("ph_customtaunts_delay", "slider", {min = 2, max = 120, init = GetConVar("ph_customtaunts_delay"):GetInt(), dec = 0, kind = "SERVER"}, grid, "Custom Taunts Delay (Seconds)")
-		Ph:CreateVGUIType("ph_normal_taunt_delay", "slider", {min = 2, max = 120, init = GetConVar("ph_normal_taunt_delay"):GetInt(), dec = 0, kind = "SERVER"}, grid, "Normal Taunts Delay (Seconds)")
-		Ph:CreateVGUIType("ph_autotaunt_enabled", "check", "SERVER", grid, "Enable Auto Taunt Features")
-		Ph:CreateVGUIType("ph_autotaunt_delay", "slider", {min = 30, max = 180, init = GetConVar("ph_autotaunt_delay"):GetInt(), dec = 0, kind = "SERVER"}, grid, "Auto Taunts Delay (Seconds)")
+		Ph:CreateVGUIType("", "label", false, grid, PHE.LANG.PHEMENU.ADMINS.OPTIONS)
+		Ph:CreateVGUIType("ph_use_custom_plmodel", "check", "SERVER", grid, PHE.LANG.PHEMENU.ADMINS.ph_use_custom_plmodel)
+		Ph:CreateVGUIType("ph_use_custom_plmodel_for_prop", "check", "SERVER", grid, PHE.LANG.PHEMENU.ADMINS.ph_use_custom_plmodel_for_prop)
+		Ph:CreateVGUIType("ph_customtaunts_delay", "slider", {min = 2, max = 120, init = GetConVar("ph_customtaunts_delay"):GetInt(), dec = 0, kind = "SERVER"}, grid, PHE.LANG.PHEMENU.ADMINS.ph_customtaunts_delay)
+		Ph:CreateVGUIType("ph_normal_taunt_delay", "slider", {min = 2, max = 120, init = GetConVar("ph_normal_taunt_delay"):GetInt(), dec = 0, kind = "SERVER"}, grid, PHE.LANG.PHEMENU.ADMINS.ph_normal_taunt_delay)
+		Ph:CreateVGUIType("ph_autotaunt_enabled", "check", "SERVER", grid, PHE.LANG.PHEMENU.ADMINS.ph_autotaunt_enabled)
+		Ph:CreateVGUIType("ph_autotaunt_delay", "slider", {min = 30, max = 180, init = GetConVar("ph_autotaunt_delay"):GetInt(), dec = 0, kind = "SERVER"}, grid, PHE.LANG.PHEMENU.ADMINS.ph_autotaunt_delay)
 		Ph:CreateVGUIType("devspacer","spacer",nil,grid,"" )
-		Ph:CreateVGUIType("ph_notice_prop_rotation", "check", "SERVER", grid, "Display 'Prop Rotation' notification on every Prop Spawns")
-		Ph:CreateVGUIType("ph_prop_camera_collisions", "check", "SERVER", grid, "Enable Prop Camera collision to the wall")
-		Ph:CreateVGUIType("ph_freezecam", "check", "SERVER", grid, "Enable Freecam features for team props")
-		Ph:CreateVGUIType("ph_prop_collision", "check", "SERVER", grid, "Enable Prop collide on each other prop players")
-		Ph:CreateVGUIType("ph_swap_teams_every_round", "check", "SERVER", grid, "Swap team every round - Disabling means team will stay forever")
-		Ph:CreateVGUIType("ph_hunter_fire_penalty", "slider", 	{min = 2, max = 80, init = GetConVar("ph_hunter_fire_penalty"):GetInt(), dec = 0, kind = "SERVER"}, grid, "Hunter points penalty")
-		Ph:CreateVGUIType("ph_hunter_kill_bonus", "slider", 	{min = 5, max = 100, init = GetConVar("ph_hunter_kill_bonus"):GetInt(), dec = 0, kind = "SERVER"}, grid, "Hunter kill bonus")
-		Ph:CreateVGUIType("ph_hunter_smg_grenades", "slider", {min = 0, max = 50, init = GetConVar("ph_hunter_smg_grenades"):GetInt(), dec = 0, kind = "SERVER"}, grid, "Hunter SMG grenades")
-		Ph:CreateVGUIType("ph_game_time", "slider", 			{min = 20, max = 300, init = GetConVar("ph_game_time"):GetInt(), dec = 0, kind = "SERVER"}, grid, "Total Game time (Minutes)")
-		Ph:CreateVGUIType("ph_hunter_blindlock_time", "slider", {min = 15, max = 60, init = GetConVar("ph_hunter_blindlock_time"):GetInt(), dec = 0, kind = "SERVER"}, grid, "Hunter blindlock time (Seconds)")
-		Ph:CreateVGUIType("ph_round_time", "slider", 			{min = 120, max = 600, init = GetConVar("ph_round_time"):GetInt(), dec = 0, kind = "SERVER"}, grid, "Game round time (Seconds)")
-		Ph:CreateVGUIType("ph_rounds_per_map", "slider", 		{min = 5, max = 30, init = GetConVar("ph_rounds_per_map"):GetInt(), dec = 0, kind = "SERVER"}, grid, "Total game Rounds per Map")
-		Ph:CreateVGUIType("ph_enable_lucky_balls", "check", "SERVER", grid, "Allow Lucky Balls Features to be spawned on breakable props (Chance is 8%)")
-		Ph:CreateVGUIType("ph_enable_devil_balls", "check", "SERVER", grid, "Allow Devil Balls Features to be spawned when hunter dies (Chance is 70%)")
-		Ph:CreateVGUIType("ph_waitforplayers", "check", "SERVER", grid, "Wait for Players to begin the gameplay")
-		Ph:CreateVGUIType("ph_min_waitforplayers", "slider", { min = 1, max = game.MaxPlayers(), init = GetConVar("ph_min_waitforplayers"):GetInt(), dec = 0, kind = "SERVER" }, grid, "Mininum Players to Wait before the game starts (default: 1)")
-		Ph:CreateVGUIType("", "label", false, grid, "Enable Custom Taunt. Mode: 0 = Random, 1 = Custom, 2 Both mode)")
-		Ph:CreateVGUIType("", "btn", {max = 2, textdata = {
-			[1] = {"--[ Current Mode is Mode: " .. GetConVar("ph_enable_custom_taunts"):GetInt() .. " ] --",
+		Ph:CreateVGUIType("ph_notice_prop_rotation", "check", "SERVER", grid, PHE.LANG.PHEMENU.ADMINS.ph_notice_prop_rotation)
+		Ph:CreateVGUIType("ph_prop_camera_collisions", "check", "SERVER", grid, PHE.LANG.PHEMENU.ADMINS.ph_prop_camera_collisions)
+		Ph:CreateVGUIType("ph_freezecam", "check", "SERVER", grid, PHE.LANG.PHEMENU.ADMINS.ph_freezecam)
+		Ph:CreateVGUIType("ph_prop_collision", "check", "SERVER", grid, PHE.LANG.PHEMENU.ADMINS.ph_prop_collision)
+		Ph:CreateVGUIType("ph_swap_teams_every_round", "check", "SERVER", grid, PHE.LANG.PHEMENU.ADMINS.ph_swap_teams_every_round)
+		Ph:CreateVGUIType("ph_hunter_fire_penalty", "slider", 	{min = 2, max = 80, init = GetConVar("ph_hunter_fire_penalty"):GetInt(), dec = 0, kind = "SERVER"}, grid, PHE.LANG.PHEMENU.ADMINS.ph_hunter_fire_penalty)
+		Ph:CreateVGUIType("ph_hunter_kill_bonus", "slider", 	{min = 5, max = 100, init = GetConVar("ph_hunter_kill_bonus"):GetInt(), dec = 0, kind = "SERVER"}, grid, PHE.LANG.PHEMENU.ADMINS.ph_hunter_kill_bonus)
+		Ph:CreateVGUIType("ph_hunter_smg_grenades", "slider", {min = 0, max = 50, init = GetConVar("ph_hunter_smg_grenades"):GetInt(), dec = 0, kind = "SERVER"}, grid, PHE.LANG.PHEMENU.ADMINS.ph_hunter_smg_grenades)
+		Ph:CreateVGUIType("ph_game_time", "slider", 			{min = 20, max = 300, init = GetConVar("ph_game_time"):GetInt(), dec = 0, kind = "SERVER"}, grid, PHE.LANG.PHEMENU.ADMINS.ph_game_time)
+		Ph:CreateVGUIType("ph_hunter_blindlock_time", "slider", {min = 15, max = 60, init = GetConVar("ph_hunter_blindlock_time"):GetInt(), dec = 0, kind = "SERVER"}, grid, PHE.LANG.PHEMENU.ADMINS.ph_hunter_blindlock_time)
+		Ph:CreateVGUIType("ph_round_time", "slider", 			{min = 120, max = 600, init = GetConVar("ph_round_time"):GetInt(), dec = 0, kind = "SERVER"}, grid, PHE.LANG.PHEMENU.ADMINS.ph_round_time)
+		Ph:CreateVGUIType("ph_rounds_per_map", "slider", 		{min = 5, max = 30, init = GetConVar("ph_rounds_per_map"):GetInt(), dec = 0, kind = "SERVER"}, grid, PHE.LANG.PHEMENU.ADMINS.ph_rounds_per_map)
+		Ph:CreateVGUIType("ph_enable_lucky_balls", "check", "SERVER", grid, PHE.LANG.PHEMENU.ADMINS.ph_enable_lucky_balls)
+		Ph:CreateVGUIType("ph_enable_devil_balls", "check", "SERVER", grid, PHE.LANG.PHEMENU.ADMINS.ph_enable_devil_balls)
+		Ph:CreateVGUIType("ph_waitforplayers", "check", "SERVER", grid, PHE.LANG.PHEMENU.ADMINS.ph_waitforplayers)
+		Ph:CreateVGUIType("ph_min_waitforplayers", "slider", { min = 1, max = game.MaxPlayers(), init = GetConVar("ph_min_waitforplayers"):GetInt(), dec = 0, kind = "SERVER" }, grid, PHE.LANG.PHEMENU.ADMINS.ph_min_waitforplayers)
+		Ph:CreateVGUIType("", "label", false, grid, PHE.LANG.PHEMENU.ADMINS.TAUNTMODES)
+		Ph:CreateVGUIType("", "btn", {max = 2, wide = 180, textdata = {
+			[1] = {PHE.LANG.PHEMENU.ADMINS[ "TAUNTMODE" .. (GetConVar("ph_enable_custom_taunts"):GetInt() || 0)],
 			function(self)
 				local CusTauntConvar = {
-					[0] = "Mode [0/F3]: Random Taunt",
-					[1] = "Mode [1/C]: Custom Taunt",
-					[2] = "Mode [2]: Both Modes"
+					[0] = PHE.LANG.PHEMENU.ADMINS.TAUNTMODE0,
+					[1] = PHE.LANG.PHEMENU.ADMINS.TAUNTMODE1,
+					[2] = PHE.LANG.PHEMENU.ADMINS.TAUNTMODE2
 				}
 				local function SendTauntCommandState(state)
 					net.Start("SendTauntStateCmd")
@@ -602,7 +606,7 @@ function ph_BaseMainWindow(ply, cmd, args)
 					self:SetText(CusTauntConvar[state])
 				end
 			end},
-			[2] = {"Open Taunt Window", function(self)
+			[2] = {PHE.LANG.PHEMENU.ADMINS.TAUNTSOPEN, function(self)
 				if !LocalPlayer():Alive() then
 					print("You must do this action when you are alive!")
 					frm:Close()

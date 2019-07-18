@@ -112,6 +112,38 @@ LANG.PHEMENU.PLAYERMODEL.TAB = "Playermodels"
 LANG.PHEMENU.ADMINS = {}
 LANG.PHEMENU.ADMINS.TAB = "Admins"
 
+LANG.PHEMENU.ADMINS.OPTIONS = "Serverside gamemode Options (Only visible for Admins/Owner)"
+
+LANG.PHEMENU.ADMINS.ph_use_custom_plmodel = "Enable custom models for Hunters"
+LANG.PHEMENU.ADMINS.ph_use_custom_plmodel_for_prop = "Enable custom models for Props - Make sure to enable for Hunter too."
+LANG.PHEMENU.ADMINS.ph_customtaunts_delay = "Custom Taunts Delay (Seconds)"
+LANG.PHEMENU.ADMINS.ph_normal_taunt_delay = "Normal Taunts Delay (Seconds)"
+LANG.PHEMENU.ADMINS.ph_autotaunt_enabled = "Enable Auto Taunt Features"
+LANG.PHEMENU.ADMINS.ph_autotaunt_delay = "Auto Taunts Delay (Seconds)"
+
+LANG.PHEMENU.ADMINS.ph_notice_prop_rotation = "Display 'Prop Rotation' notification on every Prop Spawns"
+LANG.PHEMENU.ADMINS.ph_prop_camera_collisions = "Enable Prop Camera collision to the wall"
+LANG.PHEMENU.ADMINS.ph_freezecam = "Enable Freecam features for team props"
+LANG.PHEMENU.ADMINS.ph_prop_collision = "Enable Prop collide on each other prop players"
+LANG.PHEMENU.ADMINS.ph_swap_teams_every_round = "Swap team every round - Disabling means team will stay forever"
+LANG.PHEMENU.ADMINS.ph_hunter_fire_penalty = "Hunter health penalty"
+LANG.PHEMENU.ADMINS.ph_hunter_kill_bonus = "Hunter kill bonus"
+LANG.PHEMENU.ADMINS.ph_hunter_smg_grenades = "Hunter SMG grenades"
+LANG.PHEMENU.ADMINS.ph_game_time = "Total Game time (Minutes)"
+LANG.PHEMENU.ADMINS.ph_hunter_blindlock_time = "Hunter blindlock time (Seconds)"
+LANG.PHEMENU.ADMINS.ph_round_time = "Game round time (Seconds)"
+LANG.PHEMENU.ADMINS.ph_rounds_per_map = "Total game Rounds per Map"
+LANG.PHEMENU.ADMINS.ph_enable_lucky_balls = "Allow Lucky Balls Features to be spawned on breakable props (Chance is 8%)"
+LANG.PHEMENU.ADMINS.ph_enable_devil_balls = "Allow Devil Balls Features to be spawned when hunter dies (Chance is 70%)"
+LANG.PHEMENU.ADMINS.ph_waitforplayers = "Wait for Players to begin the gameplay"
+LANG.PHEMENU.ADMINS.ph_min_waitforplayers = "Mininum Players to Wait before the game starts (default: 1)"
+
+LANG.PHEMENU.ADMINS.TAUNTMODES = "Enable Custom Taunt."
+LANG.PHEMENU.ADMINS.TAUNTMODE0 = "Mode [0/F3]: Random Taunt"
+LANG.PHEMENU.ADMINS.TAUNTMODE1 = "Mode [1/C]: Custom Taunt"
+LANG.PHEMENU.ADMINS.TAUNTMODE2 = "Mode [2]: Both Modes"
+LANG.PHEMENU.ADMINS.TAUNTSOPEN = "Open Taunt Window"
+
 LANG.PHEMENU.MAPVOTE = {}
 
 LANG.PHEMENU.MAPVOTE.TAB = "MapVote"

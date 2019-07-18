@@ -1,5 +1,5 @@
 LANG = {}
--- No me se la regla de los acentos ni español neutro asi que se aguantan >:C
+-- Cualquier persona es bienvenida a mejorar esta traduccion (soy argentino y no se la regla de las tildes) - Fafy
 
 -- Language code and name
 LANG.Code = "es"
@@ -26,8 +26,8 @@ LANG.HUD.AMMO = "MUNICION"
 LANG.HUD.TIME = "TIEMPO"
 LANG.HUD.ROUND = "RONDA"
 
-LANG.HUD.ROTLOCKON = "Prop Rotation Lock: Enabled"
-LANG.HUD.ROTLOCKOFF = "Prop Rotation Lock: Disabled"
+LANG.HUD.ROTLOCKON = "Bloqueo de Rotacion de Prop: Activado"
+LANG.HUD.ROTLOCKOFF = "Bloqueo de Rotacion de Prop: Desactivado"
 LANG.HUD.FREEZECAM = "Fuiste asesinado por %s"
 
 LANG.HUD.WAIT = "Esperando jugadores..."
@@ -108,6 +108,38 @@ LANG.PHEMENU.PLAYERMODEL.TAB = "Modelo de jugador"
 
 LANG.PHEMENU.ADMINS = {}
 LANG.PHEMENU.ADMINS.TAB = "Administracion" -- Creo que queda mejor considerando el proposito de esa pestaña
+
+LANG.PHEMENU.ADMINS.OPTIONS = "Opciones del servidor (solo visible para admins/dueños)"
+
+LANG.PHEMENU.ADMINS.ph_use_custom_plmodel = "Habilitar modelos personalizados para Hunters"
+LANG.PHEMENU.ADMINS.ph_use_custom_plmodel_for_prop = "Habilitar modelos personalizados para Props - Activar para Hunters tambien!"
+LANG.PHEMENU.ADMINS.ph_customtaunts_delay = "Demora para Taunts personalizados (segundos)"
+LANG.PHEMENU.ADMINS.ph_normal_taunt_delay = "Demora para Taunts normales (segundos)"
+LANG.PHEMENU.ADMINS.ph_autotaunt_enabled = "Habilitar Taunts automaticos"
+LANG.PHEMENU.ADMINS.ph_autotaunt_delay = "Demora para Taunts automaticos (segundos)"
+
+LANG.PHEMENU.ADMINS.ph_notice_prop_rotation = "Mostrar notificacion de 'Rotacion de Prop' en cada spawn de Props"
+LANG.PHEMENU.ADMINS.ph_prop_camera_collisions = "Habilitar la colision de las camaras de Props con las paredes"
+LANG.PHEMENU.ADMINS.ph_freezecam = "Habilitar camara de muerte para el equipo Props"
+LANG.PHEMENU.ADMINS.ph_prop_collision = "Habilitar colisiones de Props entre sí"
+LANG.PHEMENU.ADMINS.ph_swap_teams_every_round = "Intercambiar equipos cada ronda - Desactivar esto significa que los equipos nunca cambiaran"
+LANG.PHEMENU.ADMINS.ph_hunter_fire_penalty = "Penalidad de salud de los Hunters"
+LANG.PHEMENU.ADMINS.ph_hunter_kill_bonus = "Recompensa de salud de los Huters"
+LANG.PHEMENU.ADMINS.ph_hunter_smg_grenades = "Granadas SMG de los Hunters"
+LANG.PHEMENU.ADMINS.ph_game_time = "Tiempo total del juego (minutos)"
+LANG.PHEMENU.ADMINS.ph_hunter_blindlock_time = "Tiempo de cegera de los Hunters (segundos)"
+LANG.PHEMENU.ADMINS.ph_round_time = "Tiempo de rondas (segundos)"
+LANG.PHEMENU.ADMINS.ph_rounds_per_map = "Cantidad maxima de rondas por mapa"
+LANG.PHEMENU.ADMINS.ph_enable_lucky_balls = "Permitir que 'Lucky Balls' aparezcan en props rompibles (probabilidades son 8%)"
+LANG.PHEMENU.ADMINS.ph_enable_devil_balls = "Permitir que 'Lucky Balls' aparezcan cuando un Hunter muere (probablilidades son 70%)"
+LANG.PHEMENU.ADMINS.ph_waitforplayers = "Esperar a jugadores para comenzar el juego"
+LANG.PHEMENU.ADMINS.ph_min_waitforplayers = "Cantidad minima de jugadores para comenzar el juego"
+
+LANG.PHEMENU.ADMINS.TAUNTMODES = "Habilitar Taunts personalizados."
+LANG.PHEMENU.ADMINS.TAUNTMODE0 = "Modo [0/F3]: Taunt al azar"
+LANG.PHEMENU.ADMINS.TAUNTMODE1 = "Modo [1/C]: Taunt personalizado"
+LANG.PHEMENU.ADMINS.TAUNTMODE2 = "Modo [2]: Ambos modos"
+LANG.PHEMENU.ADMINS.TAUNTSOPEN = "Abrir ventana de Taunts"
 
 LANG.PHEMENU.MAPVOTE = {}
 
