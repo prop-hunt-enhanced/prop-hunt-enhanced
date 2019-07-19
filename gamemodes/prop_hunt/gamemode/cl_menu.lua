@@ -394,7 +394,7 @@ function ph_BaseMainWindow(ply, cmd, args)
 			local slider = vgui.Create("DNumSlider", panelpreview)
 			slider:Dock(BOTTOM)
 			slider:SetSize(0,32)
-			slider:SetText(" Set Model FOV")
+			slider:SetText(" " .. PHE.LANG.PHEMENU.PLAYERMODEL.SETFOV)
 			slider:SetMin(50)
 			slider:SetMax(90)
 			slider:SetValue(40)
@@ -483,7 +483,7 @@ function ph_BaseMainWindow(ply, cmd, args)
 		if GetConVar("ph_use_custom_plmodel"):GetBool() then
 			-- Call the VGUI Properties of PlayerModelAdditions().
 			Ph:PlayerModelAdditions()
-			tab:AddSheet("Player Model", panel, "icon16/brick.png")
+			tab:AddSheet(PHE.LANG.PHEMENU.PLAYERMODEL.TAB, panel, "icon16/brick.png")
 		else
 			-- Show small message instead
 			local scroll = vgui.Create( "DScrollPanel", panel )
@@ -496,12 +496,12 @@ function ph_BaseMainWindow(ply, cmd, args)
 			gridmdl:SetColWide(800)
 			gridmdl:SetRowHeight(32)
 
-			Ph:CreateVGUIType("", "label", false, gridmdl, "Sorry, Custom Player Model is disabled on this server!")
+			Ph:CreateVGUIType("", "label", false, gridmdl, PHE.LANG.PHEMENU.PLAYERMODEL.OFF)
 
 			-- this hook is intended to use for custom player model outside from PH:E Menu. (like Custom Donator Model window or something).
 			hook.Call("PH_CustomPlayermdlButton", nil, panel, gridmdl, function(cmd,typ,data,panel,text) Ph:CreateVGUIType(cmd,typ,data,panel,text) end)
 
-			tab:AddSheet("Player Model", panel, "icon16/brick.png")
+			tab:AddSheet(PHE.LANG.PHEMENU.PLAYERMODEL.TAB, panel, "icon16/brick.png")
 		end
 	end
 
@@ -628,7 +628,7 @@ function ph_BaseMainWindow(ply, cmd, args)
 		Ph:CreateVGUIType("ph_sv_enable_obb_modifier","check","SERVER",grid, "Developer: Enable Customized Prop Entity OBB Model Data Modifier")
 		Ph:CreateVGUIType("ph_reload_obb_setting_everyround","check","SERVER",grid, "Developer: Reload Customized Prop Entity OBB Model Data Modifier every round restarts")
 
-	tab:AddSheet("Admins", panel, "icon16/user_gray.png")
+	tab:AddSheet(PHE.LANG.PHEMENU.ADMINS.TAB, panel, "icon16/user_gray.png")
 	end
 
 	function Ph:MapVoteMenu()

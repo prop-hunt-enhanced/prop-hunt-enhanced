@@ -104,7 +104,9 @@ LANG.PHEMENU.MUTE = {}
 LANG.PHEMENU.MUTE.TAB = "Silenciar"
 
 LANG.PHEMENU.PLAYERMODEL = {}
-LANG.PHEMENU.PLAYERMODEL.TAB = "Modelo de jugador"
+LANG.PHEMENU.PLAYERMODEL.TAB = "Modelos para jugadores"
+LANG.PHEMENU.PLAYERMODEL.OFF = "Los modelos personalizados están deshabilitados en este servidor!"
+LANG.PHEMENU.PLAYERMODEL.SETFOV = "Establecer FOV del modelo"
 
 LANG.PHEMENU.ADMINS = {}
 LANG.PHEMENU.ADMINS.TAB = "Administracion" -- Creo que queda mejor considerando el proposito de esa pestaña
@@ -147,7 +149,7 @@ LANG.PHEMENU.MAPVOTE.TAB = "MapVote"
 LANG.PHEMENU.MAPVOTE.SETTINGS = "Opciones de MapVote"
 
 LANG.PHEMENU.MAPVOTE.mv_allowcurmap = "Permitir el mapa actual en la votacion"
-LANG.PHEMENU.MAPVOTE.mv_cooldown = "Enable map Cooldown for voting" -- No se ni que hace?
+LANG.PHEMENU.MAPVOTE.mv_cooldown = "Habilitar demora para que un mapa aparezca de nuevo"
 LANG.PHEMENU.MAPVOTE.mv_use_ulx_votemaps = "Usar lista de mapas de ULX? Si nó, se usaran mapas de maps/*.bsp."
 LANG.PHEMENU.MAPVOTE.mv_maplimit = "Cantidad de mapas para mostrar en el MapVote."
 LANG.PHEMENU.MAPVOTE.mv_timelimit = "Tiempo en segundos para el MapVote."
