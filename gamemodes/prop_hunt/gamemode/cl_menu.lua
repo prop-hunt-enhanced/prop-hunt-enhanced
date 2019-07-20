@@ -370,7 +370,7 @@ function ph_BaseMainWindow(ply, cmd, args)
 			helpImage:SetImage("vgui/phhelp" .. helpImage.Count .. ".vmt")
 		end
 
-		tab:AddSheet("Help", panel, "icon16/help.png")
+		tab:AddSheet(PHE.LANG.PHEMENU.HELP.TAB, panel, "icon16/help.png")
 	end
 
 	function Ph:PlayerModelSelections()
@@ -508,34 +508,34 @@ function ph_BaseMainWindow(ply, cmd, args)
 	function Ph:PlayerOption()
 		local panel,gridpl = Ph:CreateBasicLayout(Color(40,40,40,180),tab)
 
-		Ph:CreateVGUIType("", "label", false, gridpl, "Player Options:")
-		Ph:CreateVGUIType("ph_cl_halos", "check", "CLIENT", gridpl, "Toggle Halo effect when choosing a prop" )
-		Ph:CreateVGUIType("ph_cl_pltext", "check", "CLIENT", gridpl, "Show Team player names above their heads instead (and appear through wall too)")
-		Ph:CreateVGUIType("ph_cl_endround_sound", "check", "CLIENT", gridpl, "Play End round sound cue")
-		Ph:CreateVGUIType("ph_cl_autoclose_taunt", "check", "CLIENT", gridpl, "Option for Auto closing for Taunt window when double-clicking them")
-		Ph:CreateVGUIType("ph_cl_spec_hunter_line", "check", "CLIENT", gridpl, "Draw a line on hunters so we can see their aim in spectator mode.")
-		Ph:CreateVGUIType("cl_enable_luckyballs_icon", "check", "CLIENT", gridpl, "Enable 'Lucky ball' icon to be displayed once they are spawned")
-		Ph:CreateVGUIType("cl_enable_devilballs_icon", "check", "CLIENT", gridpl, "Enable 'Devil ball' icon to be displayed once they are spawned")
-		Ph:CreateVGUIType("ph_cl_taunt_key", "binder", "CLIENT", gridpl, "Button to play a random taunt")
+		Ph:CreateVGUIType("", "label", false, gridpl, PHE.LANG.PHEMENU.PLAYER.OPTIONS)
+		Ph:CreateVGUIType("ph_cl_halos", "check", "CLIENT", gridpl, PHE.LANG.PHEMENU.PLAYER.ph_cl_halos)
+		Ph:CreateVGUIType("ph_cl_pltext", "check", "CLIENT", gridpl, PHE.LANG.PHEMENU.PLAYER.ph_cl_pltext)
+		Ph:CreateVGUIType("ph_cl_endround_sound", "check", "CLIENT", gridpl, PHE.LANG.PHEMENU.PLAYER.ph_cl_endround_sound)
+		Ph:CreateVGUIType("ph_cl_autoclose_taunt", "check", "CLIENT", gridpl, PHE.LANG.PHEMENU.PLAYER.ph_cl_autoclose_taunt)
+		Ph:CreateVGUIType("ph_cl_spec_hunter_line", "check", "CLIENT", gridpl, PHE.LANG.PHEMENU.PLAYER.ph_cl_spec_hunter_line)
+		Ph:CreateVGUIType("cl_enable_luckyballs_icon", "check", "CLIENT", gridpl, PHE.LANG.PHEMENU.PLAYER.cl_enable_luckyballs_icon)
+		Ph:CreateVGUIType("cl_enable_devilballs_icon", "check", "CLIENT", gridpl, PHE.LANG.PHEMENU.PLAYER.cl_enable_devilballs_icon)
+		Ph:CreateVGUIType("ph_cl_taunt_key", "binder", "CLIENT", gridpl, PHE.LANG.PHEMENU.PLAYER.ph_cl_taunt_key)
 		Ph:CreateVGUIType("hudspacer","spacer",nil,gridpl,"" )
 		Ph:CreateVGUIType("", "label", false, gridpl, "HUD Settings")
-		Ph:CreateVGUIType("ph_hud_use_new", "check", "CLIENT", gridpl, "Use New PH: Enhanced HUD")
-		Ph:CreateVGUIType("ph_show_tutor_control", "check", "CLIENT", gridpl, "Show Tutorial Pop-up (Shown only 2x on each prop spawns)")
-		Ph:CreateVGUIType("ph_show_custom_crosshair", "check", "CLIENT", gridpl, "Enable Custom Crosshair")
-		Ph:CreateVGUIType("ph_show_team_topbar", "check", "CLIENT", gridpl, "Show total alive team players bar on the top left (At least 4 Players will be shown)")
+		Ph:CreateVGUIType("ph_hud_use_new", "check", "CLIENT", gridpl, PHE.LANG.PHEMENU.PLAYER.ph_hud_use_new)
+		Ph:CreateVGUIType("ph_show_tutor_control", "check", "CLIENT", gridpl, PHE.LANG.PHEMENU.PLAYER.ph_show_tutor_control)
+		Ph:CreateVGUIType("ph_show_custom_crosshair", "check", "CLIENT", gridpl, PHE.LANG.PHEMENU.PLAYER.ph_show_custom_crosshair)
+		Ph:CreateVGUIType("ph_show_team_topbar", "check", "CLIENT", gridpl, LANG.PHEMENU.PLAYER.ph_show_team_topbar)
 
-	tab:AddSheet("Player", panel, "icon16/user_orange.png")
+	tab:AddSheet(PHE.LANG.PHEMENU.PLAYER.TAB, panel, "icon16/user_orange.png")
 	end
 
 	function Ph:PlayerMute()
 		local panel,gridmute = Ph:CreateBasicLayout(Color(40,40,40,180),tab)
 
-		Ph:CreateVGUIType("","label",false,gridmute,"Select one player that you wish to mute.")
+		Ph:CreateVGUIType("","label",false,gridmute,PHE.LANG.PHEMENU.MUTE.SELECT)
 		for _,Plys in pairs(player.GetAll()) do
 			Ph:CreateVGUIType("","mute",Plys,gridmute,"")
 		end
 
-		tab:AddSheet("Mute", panel, "icon16/sound_delete.png")
+		tab:AddSheet(PHE.LANG.PHEMENU.MUTE.TAB, panel, "icon16/sound_delete.png")
 	end
 	-- Call All Functions, but Admin (must check by serverside user rights from sv_admin.lua)
 	Ph:HelpSelections()

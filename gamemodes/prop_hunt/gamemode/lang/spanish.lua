@@ -102,6 +102,25 @@ LANG.PHEMENU.HELP.TAB = "Ayuda (en ingles)"
 
 LANG.PHEMENU.MUTE = {}
 LANG.PHEMENU.MUTE.TAB = "Silenciar"
+LANG.PHEMENU.MUTE.SELECT = "Select one player that you wish to mute."
+
+LANG.PHEMENU.PLAYER = {}
+LANG.PHEMENU.PLAYER.TAB = "Jugador"
+LANG.PHEMENU.PLAYER.OPTIONS = "Opciones para jugadores:"
+
+LANG.PHEMENU.PLAYER.ph_cl_halos = "Toggle Halo effect when choosing a prop"
+LANG.PHEMENU.PLAYER.ph_cl_pltext = "Show Team player names above their heads instead (and appear through wall too)"
+LANG.PHEMENU.PLAYER.ph_cl_endround_sound = "Play End round sound cue"
+LANG.PHEMENU.PLAYER.ph_cl_autoclose_taunt = "Option for Auto closing for Taunt window when double-clicking them"
+LANG.PHEMENU.PLAYER.ph_cl_spec_hunter_line = "Draw a line on hunters so we can see their aim in spectator mode."
+LANG.PHEMENU.PLAYER.cl_enable_luckyballs_icon = "Enable 'Lucky ball' icon to be displayed once they are spawned"
+LANG.PHEMENU.PLAYER.cl_enable_devilballs_icon = "Enable 'Devil ball' icon to be displayed once they are spawned"
+LANG.PHEMENU.PLAYER.ph_cl_taunt_key = "Button to play a random taunt"
+
+LANG.PHEMENU.PLAYER.ph_hud_use_new = "Use New PH: Enhanced HUD"
+LANG.PHEMENU.PLAYER.ph_show_tutor_control = "Show Tutorial Pop-up (Shown only 2x on each prop spawns)"
+LANG.PHEMENU.PLAYER.ph_show_custom_crosshair = "Enable Custom Crosshair"
+LANG.PHEMENU.PLAYER.ph_show_team_topbar = "Show total alive team players bar on the top left (At least 4 Players will be shown)"
 
 LANG.PHEMENU.PLAYERMODEL = {}
 LANG.PHEMENU.PLAYERMODEL.TAB = "Modelos para jugadores"
