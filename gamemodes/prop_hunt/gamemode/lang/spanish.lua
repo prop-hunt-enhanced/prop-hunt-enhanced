@@ -16,6 +16,8 @@ LANG.Help = [[	Un modo de juego mejorado basado en el clasico 'Prop Hunt'
 		- Mas opciones en el Menu de Prop Hunt
 		- Gamemode mejor optimizado
 		- Y mucho mas!
+
+	Traducción al español por Fafy!
 	]]
 
 -- HUD elements

@@ -1,12 +1,11 @@
 -- Language implementation
 PHE.LANGUAGES = {}
 
--- Include languages
-AddCSLuaFile("lang/english.lua")
-include("lang/english.lua")
-
-AddCSLuaFile("lang/spanish.lua")
-include("lang/spanish.lua")
+-- Load languages
+for _, lang in pairs(file.Find("prop_hunt/gamemode/lang/*.lua", "LUA")) do
+	AddCSLuaFile("lang/" .. lang)
+	include("lang/" .. lang)
+end
 
 -- Load english
 PHE.LANG = PHE.LANGUAGES["en"]
