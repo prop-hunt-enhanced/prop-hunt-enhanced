@@ -134,6 +134,7 @@ LANG.PHEMENU.ADMINS.TAB = "Administracion" -- Creo que queda mejor considerando 
 
 LANG.PHEMENU.ADMINS.OPTIONS = "Opciones del servidor (solo visible para admins/dueños)"
 
+LANG.PHEMENU.ADMINS.ph_language = "Idioma del juego (necesita un cambio de mapa)"
 LANG.PHEMENU.ADMINS.ph_use_custom_plmodel = "Habilitar modelos personalizados para Hunters"
 LANG.PHEMENU.ADMINS.ph_use_custom_plmodel_for_prop = "Habilitar modelos personalizados para Props - Activar para Hunters tambien!"
 LANG.PHEMENU.ADMINS.ph_customtaunts_delay = "Demora para Taunts personalizados (segundos)"

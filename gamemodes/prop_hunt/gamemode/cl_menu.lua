@@ -279,6 +279,53 @@ function ph_BaseMainWindow(ply, cmd, args)
 
 			panel:AddItem (pnl)
 		end
+
+		-- Combo Box
+		if typ == "combobox" then
+			if type(data) == "table" then
+				local pnl = vgui.Create ("DPanel")
+				pnl:SetSize(panel:GetColWide(),panel:GetRowHeight() - 12)
+				pnl.Paint = function () end
+
+				local box = vgui.Create("DComboBox", pnl)
+				box:Dock(LEFT)
+				box:SetWide(75)
+
+				if data.wide then
+					box:SetWide(data.wide)
+				end
+
+				-- Add choices
+				for choiceData, choiceText in pairs(data.choices) do
+					box:AddChoice(choiceText, choiceData)
+				end
+
+				-- Select default
+				box:SetValue(data.default)
+
+				box.OnSelect = function(this, _, _, choiceData)
+					if data.kind == "SERVER" then
+						net.Start("SvCommandBoxReq")
+						net.WriteString(cmd)
+						net.WriteString(choiceData)
+						net.SendToServer()
+					else
+						RunConsoleCommand(cmd, choiceData)
+					end
+				end
+
+				-- Text
+				local label = pnl:Add ("DLabel")
+				label:Dock (FILL)
+				label:DockMargin (9, 0, 0, 0)
+				label:SetText (text)
+
+				panel:AddItem (pnl)
+
+			else
+				print(cmd .. " -> Ph:CreateVGUIType FAILED! - 'data' argument must containt table value, Example:\n\n   { choices = { data1 = text1, data2 = text2 },  default = \"default text to show\" } \n  --> Got " .. type(data) .. " instead!!")
+			end
+		end
 	end
 
 	function Ph:HelpSelections()
@@ -549,9 +596,18 @@ function ph_BaseMainWindow(ply, cmd, args)
 	end)
 
 	function Ph:ShowAdminMenu()
+		-- Language choices
+		local choices = {}
+
+		for _, lang in pairs(PHE.LANGUAGES) do
+			choices[lang.Code] = string.format("%s - %s (%s)", lang.Name:sub(1, 1):upper() .. lang.Name:sub(2), lang.NameEnglish:sub(1, 1):upper() .. lang.NameEnglish:sub(2), lang.Code)
+		end
+
+
 		local panel,grid = Ph:CreateBasicLayout(Color(40,40,40,180),tab)
 
 		Ph:CreateVGUIType("", "label", false, grid, PHE.LANG.PHEMENU.ADMINS.OPTIONS)
+		Ph:CreateVGUIType("ph_language", "combobox", { choices = choices, default = string.format("%s - %s (%s)", PHE.LANG.Name:sub(1, 1):upper() .. PHE.LANG.Name:sub(2), PHE.LANG.NameEnglish:sub(1, 1):upper() .. PHE.LANG.NameEnglish:sub(2), PHE.LANG.Code), wide = 150, kind = "SERVER" }, grid, PHE.LANG.PHEMENU.ADMINS.ph_language)
 		Ph:CreateVGUIType("ph_use_custom_plmodel", "check", "SERVER", grid, PHE.LANG.PHEMENU.ADMINS.ph_use_custom_plmodel)
 		Ph:CreateVGUIType("ph_use_custom_plmodel_for_prop", "check", "SERVER", grid, PHE.LANG.PHEMENU.ADMINS.ph_use_custom_plmodel_for_prop)
 		Ph:CreateVGUIType("ph_customtaunts_delay", "slider", {min = 2, max = 120, init = GetConVar("ph_customtaunts_delay"):GetInt(), dec = 0, kind = "SERVER"}, grid, PHE.LANG.PHEMENU.ADMINS.ph_customtaunts_delay)

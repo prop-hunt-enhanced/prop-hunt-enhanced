@@ -138,6 +138,7 @@ LANG.PHEMENU.ADMINS.TAB = "Administration"
 
 LANG.PHEMENU.ADMINS.OPTIONS = "Options Serveur du mode de jeux (Visible uniquement pour les admins)"
 
+LANG.PHEMENU.ADMINS.ph_language = "Gamemode language (requires map change)"
 LANG.PHEMENU.ADMINS.ph_use_custom_plmodel = "Activer les modèles customisés pour les Hunters"
 LANG.PHEMENU.ADMINS.ph_use_custom_plmodel_for_prop = "Activer les modèles customisés pour les Props - Doit être activé pour les Hunters."
 LANG.PHEMENU.ADMINS.ph_customtaunts_delay = "Délai des taunts customisés (Secondes)"
