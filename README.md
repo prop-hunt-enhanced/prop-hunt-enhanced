@@ -1,4 +1,4 @@
-# Wolvin's - Prop Hunt: ENHANCED v.15 Rev. K
+# Wolvin's - Prop Hunt: ENHANCED v.16 Rev. A
 
 ![Prop Hunt: Enhanced Logo](https://i.ibb.co/7Yq3PhX/image.png "Prop Hunt: Enhanced v.15")
 
