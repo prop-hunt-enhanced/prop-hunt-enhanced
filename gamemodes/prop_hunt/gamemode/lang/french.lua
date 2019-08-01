@@ -2,7 +2,7 @@
    LANG = {}
 
 -- Language code and name
-LANG.Code = "fr
+LANG.Code = "fr"
 LANG.Name = "français"
 LANG.NameEnglish = "french"
 
@@ -14,6 +14,8 @@ Pour afficher l'aide, Clic sur 'Prop Hunt Menu'.
 		- Plus d'options dans le menu PHE
 		- Optimisations
 		- Et plus encore !
+
+	Traduction par lucas2107!
 	]]
 
 -- HUD elements
@@ -198,3 +200,6 @@ LANG.PHEMENU.ABOUT.TAB = "A propos de PHE"
 LANG.PHEMENU.ABOUT.DONATE = "Faire une donation au projet PH:E"
 LANG.PHEMENU.ABOUT.HOME = "Page Officielle PH:E"
 LANG.PHEMENU.ABOUT.GITHUB = "GitHub Repository"
+
+-- Saving
+PHE.LANGUAGES[LANG.Code] = LANG
