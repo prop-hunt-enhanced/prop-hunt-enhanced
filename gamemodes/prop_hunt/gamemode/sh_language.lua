@@ -8,6 +8,6 @@ for _, lang in pairs(file.Find("prop_hunt/gamemode/lang/*.lua", "LUA")) do
 end
 
 -- Load english
-PHE.LANG = PHE.LANGUAGES["en"]
+PHE.LANG = table.Copy(PHE.LANGUAGES["en"])
 -- Override language
 table.Merge(PHE.LANG, PHE.LANGUAGES[GetConVar("ph_language"):GetString()] || {})
