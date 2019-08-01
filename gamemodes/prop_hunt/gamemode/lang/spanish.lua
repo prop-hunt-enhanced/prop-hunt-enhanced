@@ -28,8 +28,8 @@ LANG.HUD.AMMO = "MUNICION"
 LANG.HUD.TIME = "TIEMPO"
 LANG.HUD.ROUND = "RONDA"
 
-LANG.HUD.ROTLOCKON = "Bloqueo de Rotacion de Prop: Activado"
-LANG.HUD.ROTLOCKOFF = "Bloqueo de Rotacion de Prop: Desactivado"
+LANG.HUD.ROTLOCKON = "Rotacion de Prop: Bloqueada"
+LANG.HUD.ROTLOCKOFF = "Rotacion de Prop: Libre"
 LANG.HUD.FREEZECAM = "Fuiste asesinado por %s"
 
 LANG.HUD.WAIT = "Esperando jugadores..."

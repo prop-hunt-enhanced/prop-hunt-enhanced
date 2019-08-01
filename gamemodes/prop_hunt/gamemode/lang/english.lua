@@ -24,8 +24,8 @@ LANG.HUD.AMMO = "AMMO"
 LANG.HUD.TIME = "TIME"
 LANG.HUD.ROUND = "ROUND"
 
-LANG.HUD.ROTLOCKON = "Prop Rotation Lock: Enabled"
-LANG.HUD.ROTLOCKOFF = "Prop Rotation Lock: Disabled"
+LANG.HUD.ROTLOCKON = "Prop Rotation: Locked"
+LANG.HUD.ROTLOCKOFF = "Prop Rotation: Free"
 LANG.HUD.FREEZECAM = "You were killed by %s"
 
 LANG.HUD.WAIT = "Waiting for players..."

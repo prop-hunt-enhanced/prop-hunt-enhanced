@@ -1,5 +1,5 @@
 
-   LANG = {}
+LANG = {}
 
 -- Language code and name
 LANG.Code = "fr"
@@ -26,8 +26,8 @@ LANG.HUD.AMMO = "MUNITIONS"
 LANG.HUD.TIME = "TEMPS"
 LANG.HUD.ROUND = "MANCHE"
 
-LANG.HUD.ROTLOCKON = "Rotation du Prop: Activé"
-LANG.HUD.ROTLOCKOFF = "Rotation du Prop: Désactivé"
+LANG.HUD.ROTLOCKON = "Rotation du Prop: Bloquée"
+LANG.HUD.ROTLOCKOFF = "Rotation du Prop: Libre"
 LANG.HUD.FREEZECAM = "Vous avez été tué par %s"
 
 LANG.HUD.WAIT = "En attente de joueurs..."
