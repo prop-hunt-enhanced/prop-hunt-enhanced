@@ -114,7 +114,7 @@ function GM:TeamHasEnoughPlayers( teamid )
 	local PlayerCount = team.NumPlayers( teamid )
 
 	// Don't let them join a team if it has more players than another team
-	if ( GAMEMODE.ForceJoinBalancedTeams ) then
+	if ( GetConVar("ph_forcejoinbalancedteams"):GetBool() ) then
 	
 		for id, tm in pairs( team.GetAllTeams() ) do
 			if ( id > 0 && id < 1000 && team.NumPlayers( id ) < PlayerCount && team.Joinable(id) ) then return true end

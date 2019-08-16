@@ -57,11 +57,6 @@ function GM:Initialize()
 	if ( GAMEMODE.RoundBased ) then
 		timer.Simple( 3, function() GAMEMODE:StartRoundBasedGame() end )
 	end
-	
-	if ( GAMEMODE.AutomaticTeamBalance ) then
-		timer.Create( "CheckTeamBalance", 30, 0, function() GAMEMODE:CheckTeamBalance() end )
-	end
-	
 end
 
 function GM:Think()
@@ -432,24 +427,25 @@ function GM:CheckTeamBalance()
 	if not highest then return end
 
 	for id, tm in pairs( team.GetAllTeams() ) do
-		if ( id ~= highest and id > 0 && id < 1000 && team.Joinable( id ) ) then
-			if team.NumPlayers( id ) < team.NumPlayers( highest ) then
-				while team.NumPlayers( id ) < team.NumPlayers( highest ) - 1 do
-				
-					local ply = GAMEMODE:FindLeastCommittedPlayerOnTeam( highest )
+		if ( id ~= highest and id > 0 && id < 1000 && team.Joinable( id ) ) and team.NumPlayers( id ) < team.NumPlayers( highest ) then
+			while team.NumPlayers( id ) < team.NumPlayers( highest ) - 1 do
 
-					ply:Kill()
-					ply:SetTeam( id )
+				local ply = GAMEMODE:FindLeastCommittedPlayerOnTeam( highest )
 
-					// Todo: Notify player 'you have been swapped'
-					// This is a placeholder
-					PrintMessage(HUD_PRINTTALK, ply:Name().." has been changed to "..team.GetName( id ).." for team balance." )
-					
+				ply:Kill()
+				ply:SetTeam( id )
+
+				// Advert
+				for _, listener in ipairs(player.GetAll()) do
+					if listener == ply then
+						listener:ChatPrint(PHE.LANG.CHAT.SWAPBALANCEYOU)
+					else
+						listener:ChatPrint(string.format(PHE.LANG.CHAT.SWAPBALANCE, ply:Name(), team.GetName(id)))
+					end
 				end
 			end
 		end
 	end
-	
 end
 
 function GM:FindLeastCommittedPlayerOnTeam( teamid )

@@ -88,6 +88,9 @@ LANG.CHAT.SWAP = "Los equipos se intercambiaron!"
 LANG.CHAT.JOINED = " se unió a "
 LANG.CHAT.JOINEDTHE = " se unió a los "
 
+LANG.CHAT.SWAPBALANCE = "%s fué movido a %s para balancear los equipos."
+LANG.CHAT.SWAPBALANCEYOU = "Fuiste intercambiado para alcanzar el balance perfecto." -- Sonrían... porque incluso en la muerte, se han convertido en hijos de Thanos.
+
 LANG.CHAT.RANDOM_SPECTATORS = {
 	"para observar las cosas.",
 	"para disfrutar el caos.",
@@ -141,6 +144,8 @@ LANG.PHEMENU.ADMINS.ph_customtaunts_delay = "Demora para Taunts personalizados (
 LANG.PHEMENU.ADMINS.ph_normal_taunt_delay = "Demora para Taunts normales (segundos)"
 LANG.PHEMENU.ADMINS.ph_autotaunt_enabled = "Habilitar Taunts automaticos"
 LANG.PHEMENU.ADMINS.ph_autotaunt_delay = "Demora para Taunts automaticos (segundos)"
+LANG.PHEMENU.ADMINS.ph_forcejoinbalancedteams = "Forzar jugadores a balancear equipos al unirse"
+LANG.PHEMENU.ADMINS.ph_autoteambalance = "Balancear equipos automaticamente al comenzar la ronda"
 
 LANG.PHEMENU.ADMINS.ph_notice_prop_rotation = "Mostrar notificación de 'Rotación de Prop' en cada spawn de Props"
 LANG.PHEMENU.ADMINS.ph_prop_camera_collisions = "Habilitar la colisión de las cámaras de Props con las paredes"

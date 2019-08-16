@@ -595,6 +595,12 @@ function GM:OnPreRoundStart(num)
 
 		hook.Call("PH_OnPreRoundStart", nil, GetConVar("ph_swap_teams_every_round"):GetInt())
 	end
+
+	-- Balance teams?
+	if GetConVar("ph_autoteambalance"):GetBool() then
+		GAMEMODE:CheckTeamBalance()
+	end
+
 	UTIL_StripAllPlayers()
 	UTIL_SpawnAllPlayers()
 	UTIL_FreezeAllPlayers()
