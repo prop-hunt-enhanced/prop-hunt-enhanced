@@ -387,8 +387,14 @@ function GM:PlayerUse(pl, ent)
 			self:PlayerExchangeProp(pl, ent)
 		end
 
+
 		pl.UseTime = CurTime() + 1
 
+	end
+
+	-- Allow pickup?
+	if IsValid(ent) && (ent:GetClass() == "prop_physics" || ent:GetClass() == "prop_physics_multiplayer") && (GetConVar("ph_allow_prop_pickup"):GetInt() <= 0 || (GetConVar("ph_allow_prop_pickup"):GetInt() == 2 && pl:Team() != TEAM_HUNTERS)) then
+		return false
 	end
 
 	-- Prevent the door exploit
@@ -396,7 +402,9 @@ function GM:PlayerUse(pl, ent)
 		return false
 	end
 
+
 	pl.last_door_time = CurTime()
+
 	return true
 end
 

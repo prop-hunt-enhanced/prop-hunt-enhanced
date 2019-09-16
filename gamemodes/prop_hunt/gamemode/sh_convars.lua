@@ -80,6 +80,9 @@ local lang = CreateConVar("ph_language", "en", { FCVAR_SERVER_CAN_EXECUTE, FCVAR
 local joinBalance = CreateConVar("ph_forcejoinbalancedteams", "1", { FCVAR_SERVER_CAN_EXECUTE, FCVAR_REPLICATED, FCVAR_ARCHIVE, FCVAR_NOTIFY }, "Force players to even out teams upon joining")
 local autoBalance = CreateConVar("ph_autoteambalance", "1", { FCVAR_SERVER_CAN_EXECUTE, FCVAR_REPLICATED, FCVAR_ARCHIVE, FCVAR_NOTIFY }, "Automatically even out teams at the start of a round")
 
+-- Custom pickup (0 = no one lifts bro; 1 = everyone allowed to pick up props; 2 = only hunters can pick up (props can still become them))
+local pickupMode = CreateConVar("ph_allow_prop_pickup", "1", { FCVAR_SERVER_CAN_EXECUTE, FCVAR_REPLICATED, FCVAR_ARCHIVE, FCVAR_NOTIFY }, "Allow players to pick up small props")
+
 GM.ForceJoinBalancedTeams = joinBalance:GetBool()
 GM.AutomaticTeamBalance = autoBalance:GetBool()
 

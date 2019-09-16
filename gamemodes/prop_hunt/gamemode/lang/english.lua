@@ -148,6 +148,7 @@ LANG.PHEMENU.ADMINS.ph_autotaunt_enabled = "Enable Auto Taunt Features"
 LANG.PHEMENU.ADMINS.ph_autotaunt_delay = "Auto Taunts Delay (Seconds)"
 LANG.PHEMENU.ADMINS.ph_forcejoinbalancedteams = "Force players to even out teams upon joining"
 LANG.PHEMENU.ADMINS.ph_autoteambalance = "Automatically even out teams at the start of a round"
+LANG.PHEMENU.ADMINS.ph_allow_prop_pickup = "Allow pick up of small props (0 = No; 1 = Yes; 2 = Only Hunters)"
 
 LANG.PHEMENU.ADMINS.ph_notice_prop_rotation = "Display 'Prop Rotation' notification on every Prop Spawns"
 LANG.PHEMENU.ADMINS.ph_prop_camera_collisions = "Enable Prop Camera collision to the wall"
