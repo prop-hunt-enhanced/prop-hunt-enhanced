@@ -24,12 +24,12 @@ hook.Add("PH_CustomTabMenu", "PHE.About", function(tab, pVgui)
 
 	local label = {
 		title 	= "Prop Hunt: Enhanced",
-		author	= "Enhanced by: Wolvindra-Vinzuerio & D4UNKN0WNM4N.",
+		author	= "Enhanced by: Wolvindra-Vinzuerio, D4UNKN0WNM4N & Fafy.",
 		version = GAMEMODE._VERSION,
 		rev 	= GAMEMODE.REVISION,
-		credits	= "Yam, Godfather, adk, Lucas2107, Jonpopnycorn, Thundernerd",
-		lgit	= "https://github.com/Vinzuerio/ph-enhanced/",
-		lhome	= "https://prophunt.wolvindra.net/",
+		credits	= "Yam, Godfather, adk, Lucas2107, Jonpopnycorn, Thundernerd,  stephanlachnit",
+		lgit	= "https://github.com/prop-hunt-enhanced/prop-hunt-enhanced/",
+		lhome	= "http://www.dralga.com/phe/",
 		ldonate = GAMEMODE.DONATEURL,
 		lwiki	= "https://prophunt.wolvindra.net/?go=phe_faq",
 		lklog	= "https://prophunt.wolvindra.net/?go=changelog",
@@ -37,30 +37,16 @@ hook.Add("PH_CustomTabMenu", "PHE.About", function(tab, pVgui)
 	}
 
 	pVgui("","label","PHE.TitleFont",grid, label.title )
-	pVgui("","label","Trebuchet24",grid, "Current Version: " .. label.version .. " | Current Revision: " .. label.rev)
-	pVgui("","label","Trebuchet24",grid, "If you are enjoyed with the gamemode, Please support by Donating!" )
-	pVgui("spacer0","spacer",nil,grid,"" )
-	pVgui("","label",false,grid, "Changelog & Updates" )
-	pVgui("","btn",{max = 2,textdata = {
-		[1] = {"See Changelog", 	  function() gui.OpenURL(label.lklog); tab:GetParent():Close() end},
-		[2] = {"Check for Updates",
-			function()
-				LocalPlayer():ConCommand("ph_check_update")
-				Derma_Message("Check on your console by pressing [~] or F10 key!","Checking Updates","OK, Got it!")
-			end},
+	pVgui("","label","Trebuchet24",grid, PHE.LANG.PHEMENU.ABOUT.CURRENTVER .. label.version .. " | " .. LANG.PHEMENU.ABOUT.CURRENTREV .. label.rev)
+	pVgui("","label","Trebuchet24",grid, PHE.LANG.PHEMENU.ABOUT.ENJOYING )
+	pVgui("","label",false,grid, PHE.LANG.PHEMENU.ABOUT.LINKS )
+	pVgui("","btn",{max = 3,textdata = {
+		[1] = { PHE.LANG.PHEMENU.ABOUT.DONATE, 	  function() gui.OpenURL(label.ldonate) end},
+		[2] = { PHE.LANG.PHEMENU.ABOUT.HOME, 	  function() gui.OpenURL(label.lhome) end},
+		[3] = { PHE.LANG.PHEMENU.ABOUT.GITHUB, 	  	  function() gui.OpenURL(label.lgit) end},
 	}},grid,"")
 	pVgui("spacer1","spacer",nil,grid,"" )
-	pVgui("","label",false,grid, "Helpful External Links & Credits" )
-	pVgui("","btn",{max = 4,textdata = {
-		[1] = {"DONATE to PH:E Project", 	  function() gui.OpenURL(label.ldonate) end},
-		[2] = {"PH:E Official Homepage", 	  function() gui.OpenURL(label.lhome) end},
-		[3] = {"GitHub Repository", 	  	  function() gui.OpenURL(label.lgit) end},
-		[4] = {"PH:E Manuals & Wiki", 		  function() gui.OpenURL(label.lwiki) end},
-		[4] = {"PH:E Addons/Plugins", 		  function() gui.OpenURL(label.lplugins) end}
-	}},grid,"")
-	pVgui("spacer1","spacer",nil,grid,"" )
-	pVgui("","label","Trebuchet24",grid, "Special Thanks for the support, suggestion & contributing:\n" .. label.credits )
+	pVgui("","label","Trebuchet24",grid, LANG.PHEMENU.ABOUT.THANKS .. "\n" .. label.credits )
 
-	tab:AddSheet("About & Credits",panel,"icon16/information.png")
-
+	tab:AddSheet(PHE.LANG.PHEMENU.ABOUT.TAB,panel,"icon16/information.png")
 end)

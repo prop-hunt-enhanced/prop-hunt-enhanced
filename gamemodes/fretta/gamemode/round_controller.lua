@@ -72,7 +72,7 @@ end
 function GM:OnPreRoundStart( num )
 
 	game.CleanUpMap()
-	
+
 	UTIL_StripAllPlayers()
 	UTIL_SpawnAllPlayers()
 	UTIL_FreezeAllPlayers()

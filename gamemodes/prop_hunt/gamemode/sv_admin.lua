@@ -17,6 +17,18 @@ net.Receive("SvCommandReq", function(len, ply)
 	end
 end)
 
+net.Receive("SvCommandBoxReq", function(len, ply)
+	local cmd = net.ReadString()
+	local valstring = net.ReadString()
+	if ply:IsAdmin() or table.HasValue(PHE.SVAdmins, ply:GetUserGroup()) then
+		RunConsoleCommand(cmd, valstring)
+		printVerbose("[ADMIN CVAR NOTIFY] Commands: " .. cmd .. " has been changed (Player: " .. ply:Nick() .. " (" .. ply:SteamID() .. ")")
+	else
+		game.KickID(ply:SteamID(), "Illegal command access found by: " .. ply:Nick())
+		printVerbose("[ADMIN CVAR NOTIFY] An user " .. ply:Nick() .. "(" ..  ply:SteamID() .. ") is attempting to access " .. cmd .. ", kicked!")
+	end
+end)
+
 net.Receive("SvCommandSliderReq", function(len, ply)
 	local cmd = net.ReadString()
 	local bool = net.ReadBool()

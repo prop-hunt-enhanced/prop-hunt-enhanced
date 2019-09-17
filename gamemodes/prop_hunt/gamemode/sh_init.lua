@@ -2,6 +2,14 @@
 PHE = {}
 PHE.__index = PHE
 
+-- Initialize and Add ConVar Blocks.
+AddCSLuaFile("sh_convars.lua")
+include("sh_convars.lua")
+
+-- Language implementation
+AddCSLuaFile("sh_language.lua")
+include("sh_language.lua")
+
 -- Some config stuff
 AddCSLuaFile("config/sh_init.lua")
 include("config/sh_init.lua")
@@ -12,10 +20,6 @@ include("sh_drive_prop.lua")
 -- ULX Mapvote
 AddCSLuaFile("ulx/modules/sh/sh_phe_mapvote.lua")
 include("ulx/modules/sh/sh_phe_mapvote.lua")
-
--- Initialize and Add ConVar Blocks.
-AddCSLuaFile("sh_convars.lua")
-include("sh_convars.lua")
 
 -- Include the required lua files
 AddCSLuaFile("sh_config.lua")
@@ -54,29 +58,15 @@ IncludePlayerClasses()
 
 -- Information about the gamemode
 GM.Name		= "Prop Hunt: ENHANCED"
-GM.Author	= "Wolvindra-Vinzuerio & D4UNKN0WNM4N2010"
+GM.Author	= "Wolvindra-Vinzuerio, D4UNKN0WNM4N2010, Fafy, Dralga & Zero"
 
-GM._VERSION = "15"
-GM.REVISION	= "K"
+GM._VERSION = "16"
+GM.REVISION	= "A"
 GM.DONATEURL = "https://prophunt.wolvindra.net/?go=donate"
 GM.UPDATEURL = ""
 
--- Help info
-GM.Help = [[An Enhanced Classic Prop Hunt Gamemode.
-
-To See More Help, Click 'Prop Hunt Menu' for more!
-
-Version: ]] .. GM._VERSION .. [[ Revision: ]] .. GM.REVISION  .. [[
-
-What's New:
-- Optimised gamemode and more reliable
-- New Prop Hunt Enhanced HUD
-- New Hunter 'Armor' Method
-- New gamemode settings in PH Menu
-- New gamemode Plugins
-- New UI for Menu & Taunt Window
-- Smoother prop movements
-- and many more..!]]
+-- Format PHE.LANG.Help
+PHE.LANG.Help = string.format(PHE.LANG.Help, GM._VERSION, GM.REVISION)
 
 -- Fretta configuration
 GM.GameLength				= GetConVar("ph_game_time"):GetInt()
@@ -112,6 +102,8 @@ function GM:CreateTeams()
 	team.SetUp(TEAM_PROPS, "Props", Color(255, 60, 60, 255))
 	team.SetSpawnPoint(TEAM_PROPS, {"info_player_terrorist", "info_player_rebel", "info_player_deathmatch", "info_player_allies"})
 	team.SetClass(TEAM_PROPS, {"Prop"})
+
+
 end
 
 -- Check collisions

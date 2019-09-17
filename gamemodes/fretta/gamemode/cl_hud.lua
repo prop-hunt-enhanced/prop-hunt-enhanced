@@ -96,7 +96,7 @@ function GM:UpdateHUD_WaitForPlayers( InRound )
 	
 		local WaitText = vgui.Create( "DHudElement" );
 			WaitText:SizeToContents()
-			WaitText:SetText( "Waiting for players..." )
+			WaitText:SetText( PHE.LANG.HUD.WAIT )
 		GAMEMODE:AddHUDItem( WaitText, 8 )
 	
 	end
@@ -109,7 +109,7 @@ function GM:UpdateHUD_RoundResult( RoundResult, Alive )
 	
 	if ( type( RoundResult ) == "number" ) && ( team.GetAllTeams()[ RoundResult ] && txt == "" ) then
 		local TeamName = team.GetName( RoundResult )
-		if ( TeamName ) then txt = TeamName .. " Wins!" end
+		if ( TeamName ) then txt = string.format(PHE.LANG.HUD.WIN, TeamName) end
 	elseif ( type( RoundResult ) == "Player" && IsValid( RoundResult ) && txt == "" ) then
 		txt = RoundResult:Name() .. " Wins!"
 	end
@@ -157,7 +157,7 @@ function GM:UpdateHUD_Dead( bWaitingToSpawn, InRound )
 	
 		local RespawnText = vgui.Create( "DHudElement" );
 			RespawnText:SizeToContents()
-			RespawnText:SetText( "Waiting for round start" )
+			RespawnText:SetText( PHE.LANG.HUD.WAIT )
 		GAMEMODE:AddHUDItem( RespawnText, 8 )
 		return
 		
@@ -213,7 +213,7 @@ function GM:UpdateHUD_Dead( bWaitingToSpawn, InRound )
 		local RoundNumber = vgui.Create( "DHudUpdater" );
 			RoundNumber:SizeToContents()
 			RoundNumber:SetValueFunction( function() return GetGlobalInt( "RoundNumber", 0 ) end )
-			RoundNumber:SetLabel( "ROUND" )
+			RoundNumber:SetLabel( PHE.LANG.HUD.ROUND )
 		Bar:AddItem( RoundNumber )
 		
 		local RoundTimer = vgui.Create( "DHudCountdown" );
@@ -221,7 +221,7 @@ function GM:UpdateHUD_Dead( bWaitingToSpawn, InRound )
 			RoundTimer:SetValueFunction( function() 
 											if ( GetGlobalFloat( "RoundStartTime", 0 ) > CurTime() ) then return GetGlobalFloat( "RoundStartTime", 0 )  end 
 											return GetGlobalFloat( "RoundEndTime" ) end )
-			RoundTimer:SetLabel( "TIME" )
+			RoundTimer:SetLabel( PHE.LANG.HUD.TIME )
 		Bar:AddItem( RoundTimer )
 
 	end
@@ -264,15 +264,15 @@ function GM:UpdateHUD_Alive( InRound )
 			local RoundNumber = vgui.Create( "DHudUpdater" );
 				RoundNumber:SizeToContents()
 				RoundNumber:SetValueFunction( function() return GetGlobalInt( "RoundNumber", 0 ) end )
-				RoundNumber:SetLabel( "ROUND" )
+				RoundNumber:SetLabel( PHE.LANG.HUD.ROUND )
 			Bar:AddItem( RoundNumber )
 			
 			local RoundTimer = vgui.Create( "DHudCountdown" );
 				RoundTimer:SizeToContents()
-				RoundTimer:SetValueFunction( function() 
+				RoundTimer:SetValueFunction( function()
 												if ( GetGlobalFloat( "RoundStartTime", 0 ) > CurTime() ) then return GetGlobalFloat( "RoundStartTime", 0 )  end 
 												return GetGlobalFloat( "RoundEndTime" ) end )
-				RoundTimer:SetLabel( "TIME" )
+				RoundTimer:SetLabel( PHE.LANG.HUD.TIME )
 			Bar:AddItem( RoundTimer )
 
 		end

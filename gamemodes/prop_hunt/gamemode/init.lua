@@ -74,7 +74,7 @@ function GM:CheckPlayerDeathRoundEnd()
 	local Teams = GAMEMODE:GetTeamAliveCounts()
 
 	if table.Count(Teams) == 0 then
-		GAMEMODE:RoundEndWithResult(1001, "Draw, everyone loses!")
+		GAMEMODE:RoundEndWithResult(1001, PHE.LANG.HUD.DRAW)
 		PHE.VOICE_IS_END_ROUND = 1
 		ForceCloseTauntWindow(1)
 
@@ -90,7 +90,7 @@ function GM:CheckPlayerDeathRoundEnd()
 		-- debug
 		MsgAll("Round Result: " .. team.GetName(TeamID) .. " (" .. TeamID .. ") Wins!\n")
 		-- End Round
-		GAMEMODE:RoundEndWithResult(TeamID, team.GetName(TeamID) .. " win!")
+		GAMEMODE:RoundEndWithResult(TeamID, string.format(PHE.LANG.HUD.WIN, team.GetName(TeamID)))
 		PHE.VOICE_IS_END_ROUND = 1
 		ForceCloseTauntWindow(1)
 
@@ -381,14 +381,20 @@ function GM:PlayerUse(pl, ent)
 	if pl.UseTime <= CurTime() then
 
 		local hmx, hz = ent:GetPropSize()
-		if GetConVar("phe_check_props_boundaries"):GetBool() && !pl:CheckHull(hmx, hmx, hz) then
+		if pl:Team() == TEAM_PROPS && GetConVar("phe_check_props_boundaries"):GetBool() && !pl:CheckHull(hmx, hmx, hz) then
 			pl:SendLua("chat.AddText(Color(235, 10, 15), \"[PH: Enhanced]\", Color(220, 220, 220), \" There is no room to change that prop!\")")
 		else
 			self:PlayerExchangeProp(pl, ent)
 		end
 
+
 		pl.UseTime = CurTime() + 1
 
+	end
+
+	-- Allow pickup?
+	if IsValid(ent) && (ent:GetClass() == "prop_physics" || ent:GetClass() == "prop_physics_multiplayer") && (GetConVar("ph_allow_prop_pickup"):GetInt() <= 0 || (GetConVar("ph_allow_prop_pickup"):GetInt() == 2 && pl:Team() != TEAM_HUNTERS)) then
+		return false
 	end
 
 	-- Prevent the door exploit
@@ -396,7 +402,9 @@ function GM:PlayerUse(pl, ent)
 		return false
 	end
 
+
 	pl.last_door_time = CurTime()
+
 	return true
 end
 
@@ -545,7 +553,7 @@ function GM:RoundTimerEnd()
 		return
 	end
 
-	GAMEMODE:RoundEndWithResult(TEAM_PROPS, "Props win!")
+	GAMEMODE:RoundEndWithResult(TEAM_PROPS, string.format(LANG.HUD.WIN, "Props"))
 	PHE.VOICE_IS_END_ROUND = 1
 	ForceCloseTauntWindow(1)
 
@@ -575,7 +583,7 @@ function GM:OnPreRoundStart(num)
 					end
 				end
 
-			pl:ChatPrint("Teams have been swapped!")
+			pl:ChatPrint(PHE.LANG.CHAT.SWAP)
 			end
 		end
 
@@ -595,6 +603,12 @@ function GM:OnPreRoundStart(num)
 
 		hook.Call("PH_OnPreRoundStart", nil, GetConVar("ph_swap_teams_every_round"):GetInt())
 	end
+
+	-- Balance teams?
+	if GetConVar("ph_autoteambalance"):GetBool() then
+		GAMEMODE:CheckTeamBalance()
+	end
+
 	UTIL_StripAllPlayers()
 	UTIL_SpawnAllPlayers()
 	UTIL_FreezeAllPlayers()
@@ -713,7 +727,7 @@ function GM:RoundStart()
 
 				SetGlobalFloat( "RoundEndTime", -1 );
 
-				PrintMessage( HUD_PRINTTALK, "There's not enough players to start the game!" )
+				PrintMessage( HUD_PRINTTALK, PHE.LANG.CHAT.NOTENOUGHPLYS )
 				-- Reset the team score
 				team.SetScore(TEAM_PROPS, 0)
 				team.SetScore(TEAM_HUNTERS, 0)
@@ -778,13 +792,13 @@ function PlayerPressedKey(pl, key)
 		if key == IN_RELOAD then
 			if pl:GetPlayerLockedRot() then
 				pl:SetNWBool("PlayerLockedRotation", false)
-				pl:PrintMessage(HUD_PRINTCENTER, "Prop Rotation Lock: Disabled")
+				pl:PrintMessage(HUD_PRINTCENTER, PHE.LANG.HUD.ROTLOCKOFF)
 				net.Start("PHE.rotateState")
 					net.WriteInt(0, 2)
 				net.Send(pl)
 			else
 				pl:SetNWBool("PlayerLockedRotation", true)
-				pl:PrintMessage(HUD_PRINTCENTER, "Prop Rotation Lock: Enabled")
+				pl:PrintMessage(HUD_PRINTCENTER, PHE.LANG.HUD.ROTLOCKON)
 				net.Start("PHE.rotateState")
 					net.WriteInt(1, 2)
 				net.Send(pl)

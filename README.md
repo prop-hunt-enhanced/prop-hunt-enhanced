@@ -1,9 +1,9 @@
-# Wolvin's - Prop Hunt: ENHANCED v.15 Rev. K
+# Wolvin's - Prop Hunt: ENHANCED v.16 Rev. A
 
 ![Prop Hunt: Enhanced Logo](https://i.ibb.co/7Yq3PhX/image.png "Prop Hunt: Enhanced v.15")
 
 ## Base Information
-**Version: 15, Revision: K, Release Type: Active**
+**Version: 16, Revision: A, Release Type: PreRelease**
 
 Prop Hunt: Enhanced is now mantained by [GFL](https://www.gflclan.com) clan, as Wolvindra, creator of PHE is no longer able to mantain/update the gamemode by himself.
 

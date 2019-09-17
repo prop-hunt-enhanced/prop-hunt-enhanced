@@ -41,6 +41,14 @@ surface.CreateFont("PHE.TopBarFontTeam",
 	antialias = true,
 	shadow = true
 })
+surface.CreateFont("PHE.Trebuchet",
+{
+	font = "Trebuchet MS",
+	size = 24,
+	weight = 900,
+	antialias = true,
+	shadow = true
+})
 
 -- Hides HUD
 local hide = {
@@ -132,7 +140,7 @@ hook.Add("HUDPaint", "PHE.MainHUD", function()
 		surface.SetMaterial( mat[curteam] )
 		surface.DrawTexturedRect( pos.x, pos.y, 480, 120 )
 
-		draw.DrawText( "HEALTH", "Trebuchet24", pos.x + 175, pos.y + 14, color_white, TEXT_ALIGN_LEFT )
+		draw.DrawText( PHE.LANG.HUD.HEALTH, "PHE.Trebuchet", pos.x + 175, pos.y + 14, color_white, TEXT_ALIGN_LEFT )
 
 		if hp < 0 then hp = 0 end
 		if armor < 0 then armor = 0 end
@@ -204,7 +212,7 @@ hook.Add("HUDPaint", "PHE.MainHUD", function()
 		local name
 		local percent
 
-		draw.DrawText( "AMMO", "Trebuchet24", posw.x + 256, posw.y + 14, color_white, TEXT_ALIGN_LEFT )
+		draw.DrawText( PHE.LANG.HUD.AMMO, "PHE.Trebuchet", posw.x + 318, posw.y + 14, color_white, TEXT_ALIGN_RIGHT )
 
 		if IsValid(curWep) then
 			clip 	= curWep:Clip1()
