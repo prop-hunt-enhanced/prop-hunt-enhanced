@@ -23,6 +23,8 @@ include("sv_tauntwindow.lua")
 
 include("sv_bbox_addition.lua")
 
+include("sv_lps.lua")
+
 -- Server only constants
 PHE.EXPLOITABLE_DOORS = {
 	"func_door",
@@ -227,7 +229,14 @@ hook.Add("EntityTakeDamage", "PH_EntityTakeDamage", EntityTakeDamage)
 
 -- Called when player tries to pickup a weapon
 function GM:PlayerCanPickupWeapon(pl, ent)
-	if pl:Team() != TEAM_HUNTERS then
+    local propCount = 0
+	for k, v in pairs(team.GetPlayers(TEAM_PROPS)) do
+		if v:Alive() then
+			propCount = propCount + 1
+		end
+	end
+    
+    if pl:Team() != TEAM_HUNTERS && !(pl:Team() == TEAM_PROPS && propCount == 1) then
 		return false
 	end
 	return true
