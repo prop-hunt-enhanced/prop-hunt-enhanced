@@ -37,6 +37,8 @@ LANG.HUD.DRAW = "Egalité !"
 LANG.HUD.BLINDTIME = "Les Hunters seront libérez dans %s"
 LANG.HUD.BLINDEND = "Prêt ou non, nous arrivons !"
 
+LANG.HUD.LASTPROP = "Le dernier prop a reçu une arme à feu!"
+
 --  Kill text (X killed Y)
 LANG.DEATHNOTICE = {}
 LANG.DEATHNOTICE.KILLED = "a tué"

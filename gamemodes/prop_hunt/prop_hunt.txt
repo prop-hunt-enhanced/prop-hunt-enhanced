@@ -210,6 +210,14 @@
 			"type"		"Numeric"
 			"default"	"1"
 		}
+		23
+		{
+			"name"		"ph_enable_last_prop_standing"
+			"text"		"Enable Last Prop Standing"
+			"help"		"Should the last prop alive be given a gun?"
+			"type"		"CheckBox"
+			"default"	"1"
+		}
 	}
 
 }
