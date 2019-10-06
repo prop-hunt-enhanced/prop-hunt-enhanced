@@ -32,7 +32,7 @@ function lastPropStandingTest(pl)
 				    v:GiveAmmo(30, "357", true)
 				    
 				    PrintMessage(HUD_PRINTCENTER, PHE.LANG.HUD.LASTPROP)
-                    BroadcastLua("surface.PlaySound(lps/\"" .. PHE.LASTPROPSOUNDS[math.random(#PHE.LASTPROPSOUNDS)] .. "\")")
+                    BroadcastLua("surface.PlaySound(\"lps/" .. PHE.LASTPROPSOUNDS[math.random(#PHE.LASTPROPSOUNDS)] .. "\")")
                     
                     return
 			    end
