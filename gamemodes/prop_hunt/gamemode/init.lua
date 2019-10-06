@@ -236,7 +236,7 @@ function GM:PlayerCanPickupWeapon(pl, ent)
 		end
 	end
     
-    if pl:Team() != TEAM_HUNTERS && !(pl:Team() == TEAM_PROPS && propCount == 1) then
+    if pl:Team() != TEAM_HUNTERS && !(GetConVar("ph_enable_last_prop_standing"):GetBool() && pl:Team() == TEAM_PROPS && propCount == 1 && ent:GetClass() == "weapon_357") then
 		return false
 	end
 	return true
