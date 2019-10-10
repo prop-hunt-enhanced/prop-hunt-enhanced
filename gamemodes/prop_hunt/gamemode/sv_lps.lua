@@ -1,14 +1,15 @@
-PHE.LASTPROPSOUNDS = {}
+PHE.LPS = {}
+PHE.LPS.WEAPON = "weapon_357"
 function lastPropStandingSetup()
-    PHE.LASTPROPSOUNDS = {}
+    PHE.LPS.SOUNDS = {}
     for _, sound in pairs(file.Find("sound/lps/*.wav", "GAME")) do
-        table.insert(PHE.LASTPROPSOUNDS, sound)
+        table.insert(PHE.LPS.SOUNDS, sound)
     end
     for _, sound in pairs(file.Find("sound/lps/*.mp3", "GAME")) do
-        table.insert(PHE.LASTPROPSOUNDS, sound)
+        table.insert(PHE.LPS.SOUNDS, sound)
     end
 
-    for _, sound in pairs(PHE.LASTPROPSOUNDS) do
+    for _, sound in pairs(PHE.LPS.SOUNDS) do
         resource.AddFile("sound/lps/" .. sound)
     end
 
@@ -22,28 +23,23 @@ lastPropStandingSetup()
 cvars.AddChangeCallback("ph_enable_last_prop_standing", lastPropStandingSetup())
 
 function lastPropStandingTest(pl)
-    if GetConVar("ph_enable_last_prop_standing"):GetBool() then
-	    local propCount = 0
-	    for k, v in pairs(team.GetPlayers(TEAM_PROPS)) do
-		    if v:Alive() then
-			    propCount = propCount + 1
-		    end
-	    end
-	    
-	    if !(pl:Team() == TEAM_HUNTERS || pl:Team() == TEAM_UNASSIGNED || pl:Team() == TEAM_SPECTATOR) && propCount == 1 then
-		    for k, v in pairs(team.GetPlayers(TEAM_PROPS)) do
-			    if v:Alive() then
-				    v:Give("weapon_357")
-				    v:GiveAmmo(30, "357", true)
+    timer.Simple(0.1, function()
+        if GetConVar("ph_enable_last_prop_standing"):GetBool() then
+	        if !(pl:Team() == TEAM_HUNTERS || pl:Team() == TEAM_UNASSIGNED || pl:Team() == TEAM_SPECTATOR) && GAMEMODE:GetTeamAliveCounts()[TEAM_PROPS] == 1 then
+		        for k, v in pairs(team.GetPlayers(TEAM_PROPS)) do
+			        if v:Alive() then
+				        v:Give(PHE.LPS.WEAPON)
+				        v:GiveAmmo(120, weapons.Get(PHE.LPS.WEAPON):GetPrimaryAmmoType(), true)
 				    
-				    PrintMessage(HUD_PRINTCENTER, PHE.LANG.HUD.LASTPROP)
-                    BroadcastLua("surface.PlaySound(\"lps/" .. PHE.LASTPROPSOUNDS[math.random(#PHE.LASTPROPSOUNDS)] .. "\")")
+				        PrintMessage(HUD_PRINTCENTER, PHE.LANG.HUD.LASTPROP)
+                        BroadcastLua("surface.PlaySound(\"lps/" .. PHE.LPS.SOUNDS[math.random(#PHE.LPS.SOUNDS)] .. "\")")
                     
-                    return
-			    end
-		    end
-	    end
-    end
+                        return
+			        end
+		        end
+	        end
+        end
+    end)
 end
 hook.Add("PostPlayerDeath", "DeathLastPropStandingTest", lastPropStandingTest)
 hook.Add("PlayerDisconnected", "DisconnectLastPropStandingTest", lastPropStandingTest)

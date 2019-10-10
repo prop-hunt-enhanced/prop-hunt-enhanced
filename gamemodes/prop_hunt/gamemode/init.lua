@@ -229,14 +229,7 @@ hook.Add("EntityTakeDamage", "PH_EntityTakeDamage", EntityTakeDamage)
 
 -- Called when player tries to pickup a weapon
 function GM:PlayerCanPickupWeapon(pl, ent)
-    local propCount = 0
-	for k, v in pairs(team.GetPlayers(TEAM_PROPS)) do
-		if v:Alive() then
-			propCount = propCount + 1
-		end
-	end
-    
-    if pl:Team() != TEAM_HUNTERS && !(GetConVar("ph_enable_last_prop_standing"):GetBool() && pl:Team() == TEAM_PROPS && propCount == 1 && ent:GetClass() == "weapon_357") then
+    if pl:Team() != TEAM_HUNTERS && !(PHE.LPS && GetConVar("ph_enable_last_prop_standing"):GetBool() && pl:Team() == TEAM_PROPS && GAMEMODE:GetTeamAliveCounts()[TEAM_PROPS] == 1 && ent:GetClass() == "weapon_357") then
 		return false
 	end
 	return true

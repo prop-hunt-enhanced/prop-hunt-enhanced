@@ -65,7 +65,7 @@ function GM:CalcView(pl, origin, angles, fov)
 	view.fov = fov
 
 	-- Give the active weapon a go at changing the viewmodel position 
-	if pl:Team() == TEAM_PROPS && pl:Alive() && !pl:HasWeapon("weapon_357") then
+	if pl:Team() == TEAM_PROPS && pl:Alive() && !(PHE.LPS && pl:HasWeapon(PHE.LPS.WEAPON)) then
 		if GetConVar("ph_prop_camera_collisions"):GetBool() then
 			local trace = {}
 
