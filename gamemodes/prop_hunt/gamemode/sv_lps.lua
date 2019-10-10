@@ -1,14 +1,19 @@
+PHE.LASTPROPSOUNDS = {}
 function lastPropStandingSetup()
+    PHE.LASTPROPSOUNDS = {}
+    for _, sound in pairs(file.Find("sound/lps/*.wav", "GAME")) do
+        table.insert(PHE.LASTPROPSOUNDS, sound)
+    end
+    for _, sound in pairs(file.Find("sound/lps/*.mp3", "GAME")) do
+        table.insert(PHE.LASTPROPSOUNDS, sound)
+    end
+
+    for _, sound in pairs(PHE.LASTPROPSOUNDS) do
+        resource.AddFile("sound/lps/" .. sound)
+    end
+
     if GetConVar("ph_enable_last_prop_standing"):GetBool() then
         GM.NoPlayerPlayerDamage = false
-
-        PHE.LASTPROPSOUNDS = {}
-        for _, sound in pairs(file.Find("sound/lps/*.wav", "GAME")) do
-            table.insert(PHE.LASTPROPSOUNDS, sound)
-        end
-        for _, sound in pairs(file.Find("sound/lps/*.mp3", "GAME")) do
-            table.insert(PHE.LASTPROPSOUNDS, sound)
-        end
     else
         GM.NoPlayerPlayerDamage = true
     end
