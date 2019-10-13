@@ -22,14 +22,14 @@ end
 lastPropStandingSetup()
 cvars.AddChangeCallback("ph_enable_last_prop_standing", lastPropStandingSetup())
 
-function lastPropStandingTest(pl)
+function lastPropStandingTest(ply)
     timer.Simple(0.1, function()
         if GetConVar("ph_enable_last_prop_standing"):GetBool() then
-	        if !(pl:Team() == TEAM_HUNTERS || pl:Team() == TEAM_UNASSIGNED || pl:Team() == TEAM_SPECTATOR) && GAMEMODE:GetTeamAliveCounts()[TEAM_PROPS] == 1 then
-		        for k, v in pairs(team.GetPlayers(TEAM_PROPS)) do
-			        if v:Alive() then
-				        v:Give(PHE.LPS.WEAPON)
-				        v:GiveAmmo(120, weapons.Get(PHE.LPS.WEAPON):GetPrimaryAmmoType(), true)
+	        if !(ply:Team() == TEAM_HUNTERS || ply:Team() == TEAM_UNASSIGNED || ply:Team() == TEAM_SPECTATOR) && GAMEMODE:GetTeamAliveCounts()[TEAM_PROPS] == 1 then
+		        for _, pl in pairs(team.GetPlayers(TEAM_PROPS)) do
+			        if pl:Alive() then
+				        pl:Give(PHE.LPS.WEAPON)
+				        pl:GiveAmmo(120, pl:GetActiveWeapon():GetPrimaryAmmoType(), true)
 				    
 				        PrintMessage(HUD_PRINTCENTER, PHE.LANG.HUD.LASTPROP)
                         BroadcastLua("surface.PlaySound(\"lps/" .. PHE.LPS.SOUNDS[math.random(#PHE.LPS.SOUNDS)] .. "\")")
