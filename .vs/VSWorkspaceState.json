@@ -5,12 +5,12 @@
     "\\gamemodes\\prop_hunt",
     "\\gamemodes\\prop_hunt\\gamemode",
     "\\gamemodes\\prop_hunt\\gamemode\\lang",
+    "\\gamemodes\\prop_hunt\\gamemode\\player_class",
     "\\gamemodes\\prop_hunt\\gamemode\\ulx",
     "\\gamemodes\\prop_hunt\\gamemode\\ulx\\modules",
     "\\gamemodes\\prop_hunt\\gamemode\\ulx\\modules\\sh",
-    "\\sound",
-    "\\sound\\lps"
+    "\\sound"
   ],
-  "SelectedNode": "\\gamemodes\\prop_hunt\\gamemode\\cl_init.lua",
+  "SelectedNode": "\\gamemodes\\prop_hunt\\gamemode\\sh_drive_prop.lua",
   "PreviewInSolutionExplorer": false
 }

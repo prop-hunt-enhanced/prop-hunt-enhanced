@@ -22,6 +22,12 @@ end
 lastPropStandingSetup()
 cvars.AddChangeCallback("ph_enable_last_prop_standing", lastPropStandingSetup())
 
+hook.Add("WeaponEquip", "LastPropStandingNoHands", function(wep, ply)
+	if ply:Team() == TEAM_PROPS then
+        ply:GetHands():Remove()
+    end
+end)
+
 function lastPropStandingTest(ply)
     timer.Simple(0.1, function()
         if GetConVar("ph_enable_last_prop_standing"):GetBool() then
