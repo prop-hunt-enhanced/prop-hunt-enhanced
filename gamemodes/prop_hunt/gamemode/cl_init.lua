@@ -65,7 +65,7 @@ function GM:CalcView(pl, origin, angles, fov)
 	view.fov = fov
 
 	-- Give the active weapon a go at changing the viewmodel position 
-	if pl:Team() == TEAM_PROPS && pl:Alive() && !pl:HasWeapon(PHE.LPS.WEAPON) then
+	if pl:Team() == TEAM_PROPS && pl:Alive() then
 		if GetConVar("ph_prop_camera_collisions"):GetBool() then
 			local trace = {}
 
@@ -96,7 +96,7 @@ function GM:CalcView(pl, origin, angles, fov)
 				view.origin = origin + Vector(0, 0, 8) + (angles:Forward() * -80)
 			end
 		end
-	else
+	elseif pl:Team() == TEAM_HUNTERS && pl:Alive() then
 	 	local wep = pl:GetActiveWeapon()
 	 	if wep && wep != NULL then
 	 		local func = wep.GetViewModelPosition
@@ -110,21 +110,19 @@ function GM:CalcView(pl, origin, angles, fov)
 	 		end
 	 	end
 		-- hunter glimpse of thirdperson
-        if pl:Team() == TEAM_HUNTERS && pl:Alive() then
-		    if CL_GLIMPCAM > CurTime() then
-			    local trace = {}
+		if CL_GLIMPCAM > CurTime() then
+			local trace = {}
 
-    			trace.start = origin
-	    		trace.endpos = origin + (angles:Forward() * -80)
-		    	trace.filter = player.GetAll()
-			    trace.maxs = Vector(4, 4, 4)
-			    trace.mins = Vector(-4, -4, -4)
-			    local tr = util.TraceHull(trace)
+			trace.start = origin
+			trace.endpos = origin + (angles:Forward() * -80)
+			trace.filter = player.GetAll()
+			trace.maxs = Vector(4, 4, 4)
+			trace.mins = Vector(-4, -4, -4)
+			local tr = util.TraceHull(trace)
 
-    			view.drawviewer = true
-	    		view.origin = tr.HitPos
-		    end
-        end
+			view.drawviewer = true
+			view.origin = tr.HitPos
+		end
 	end
 
 	return view
