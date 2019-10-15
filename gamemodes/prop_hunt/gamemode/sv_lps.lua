@@ -41,7 +41,8 @@ function lastPropStandingTest(ply)
     timer.Simple(0.1, function()
         if GetConVar("ph_enable_last_prop_standing"):GetBool() then
 	        if !(ply:Team() == TEAM_HUNTERS || ply:Team() == TEAM_UNASSIGNED || ply:Team() == TEAM_SPECTATOR) && GAMEMODE:GetTeamAliveCounts()[TEAM_PROPS] == 1 then
-		        for _, pl in pairs(team.GetPlayers(TEAM_PROPS)) do
+		        lastPropStandingSetup()
+                for _, pl in pairs(team.GetPlayers(TEAM_PROPS)) do
 			        if pl:Alive() then
 				        pl:Give(PHE.LPS.WEAPON)
 				        pl:GiveAmmo(120, pl:GetActiveWeapon():GetPrimaryAmmoType(), true)

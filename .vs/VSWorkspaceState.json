@@ -8,6 +8,6 @@
     "\\sound",
     "\\sound\\lps"
   ],
-  "SelectedNode": "\\gamemodes\\prop_hunt\\gamemode\\sh_player.lua",
+  "SelectedNode": "\\gamemodes\\prop_hunt\\gamemode\\cl_init.lua",
   "PreviewInSolutionExplorer": false
 }
