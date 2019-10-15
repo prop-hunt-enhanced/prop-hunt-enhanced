@@ -29,34 +29,6 @@ hook.Add("WeaponEquip", "LastPropStandingNoHands", function(wep, ply)
     end
 end)
 
-hook.Add("EntityFireBullets", "LastPropStandingAim", function(ply, blt)
-    if ply:IsPlayer() && ply:Team() == TEAM_PROPS then
-        local eyeTrace = {}
-        local _,plyHull = ply:GetHull()
-		if plyHull.z < 24 then
-			eyeTrace.start = ply:EyePos() + Vector(0, 0, plyHull.z + (24-  plyHull.z))
-			eyeTrace.endpos = ply:EyePos() + Vector(0, 0, plyHull.z + (24 - plyHull.z)) + ply:EyeAngles():Forward() * 56756
-		elseif plyHull.z > 84 then
-			eyeTrace.start = ply:EyePos() + Vector(0, 0, plyHull.z - 84)
-			eyeTrace.endpos = ply:EyePos() + Vector(0, 0, plyHull.z - 84) + ply:EyeAngles():Forward() * 56956
-		else
-			eyeTrace.start = ply:EyePos() + Vector(0, 0, 8)
-			eyeTrace.endpos = ply:EyePos() + Vector(0, 0, 8) + ply:EyeAngles():Forward() * 56756
-		end
-        local eyeTraceResult = util.TraceLine(eyeTrace)
-
-        local aimTrace = {}
-        aimTrace.start = blt.Src
-        aimTrace.endpos = eyeTraceResult.HitPos
-        local aimTraceResult = util.TraceLine(aimTrace)
-
-        blt.Dir = aimTraceResult.Normal
-        return true
-    else
-        return false
-    end
-end)
-
 function lastPropStandingTest(ply)
     timer.Simple(0.1, function()
         if GetConVar("ph_enable_last_prop_standing"):GetBool() then

@@ -35,6 +35,10 @@ PHE.PLUGINS = {}
 AddCSLuaFile("sh_plugins.lua")
 include("sh_plugins.lua")
 
+-- Last Prop Standing
+AddCSLuaFile("sh_lps.lua")
+include("sh_lps.lua")
+
 -- MapVote
 if SERVER then
 	AddCSLuaFile("sh_mapvote.lua")
