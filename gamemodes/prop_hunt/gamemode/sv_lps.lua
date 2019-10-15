@@ -1,7 +1,14 @@
 PHE.LPS = {}
-PHE.LPS.WEAPON = "weapon_357"
+
+include("sv_lps_config.lua")
 
 function lastPropStandingSetup()
+    if GetConVar("ph_enable_last_prop_standing"):GetBool() then
+        GM.NoPlayerPlayerDamage = false
+    else
+        GM.NoPlayerPlayerDamage = true
+    end
+    
     PHE.LPS.SOUNDS = {}
     for _, sound in pairs(file.Find("sound/lps/*.wav", "GAME")) do
         table.insert(PHE.LPS.SOUNDS, sound)
@@ -13,15 +20,16 @@ function lastPropStandingSetup()
     for _, sound in pairs(PHE.LPS.SOUNDS) do
         resource.AddFile("sound/lps/" .. sound)
     end
-
-    if GetConVar("ph_enable_last_prop_standing"):GetBool() then
-        GM.NoPlayerPlayerDamage = false
+    
+    if GetConVar("ph_last_prop_standing_weapon"):GetString() == "random" then
+        PHE.LPS.WEAPON = PHE.LPS.WEAPONS[math.random(#PHE.LPS.WEAPONS)]
     else
-        GM.NoPlayerPlayerDamage = true
+        PHE.LPS.WEAPON = GetConVar("ph_last_prop_standing_weapon"):GetString()
     end
 end
 lastPropStandingSetup()
 cvars.AddChangeCallback("ph_enable_last_prop_standing", lastPropStandingSetup())
+cvars.AddChangeCallback("ph_last_prop_standing_weapon", lastPropStandingSetup())
 
 hook.Add("WeaponEquip", "LastPropStandingNoHands", function(wep, ply)
 	if ply:Team() == TEAM_PROPS then

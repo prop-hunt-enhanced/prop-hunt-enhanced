@@ -1,3 +1,6 @@
+local lpsconvar = CreateConVar("ph_enable_last_prop_standing", "1", {FCVAR_SERVER_CAN_EXECUTE, FCVAR_REPLICATED, FCVAR_NOTIFY}, "Give the last prop alive a weapon?")
+local wepconvar = CreateConVar("ph_last_prop_standing_weapon", "random", {FCVAR_SERVER_CAN_EXECUTE, FCVAR_REPLICATED, FCVAR_NOTIFY}, "Give the last prop which weapon (by class name or \"random\" from the config)?")
+
 hook.Add("EntityFireBullets", "LastPropStandingAim", function(ply, blt)
     if ply:IsPlayer() && ply:Team() == TEAM_PROPS then
         local eyeTrace = {}

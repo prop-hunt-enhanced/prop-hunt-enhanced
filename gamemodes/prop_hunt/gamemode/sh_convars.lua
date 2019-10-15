@@ -32,9 +32,6 @@ end
 local lball		= CreateConVar("ph_enable_lucky_balls", "1", { FCVAR_SERVER_CAN_EXECUTE, FCVAR_REPLICATED, FCVAR_NOTIFY }, "Spawn Lucky balls on breakable props?")
 local dball		= CreateConVar("ph_enable_devil_balls", "1", { FCVAR_SERVER_CAN_EXECUTE, FCVAR_REPLICATED, FCVAR_NOTIFY }, "Spawn Devil balls when hunter dies?")
 
--- Last Prop Standing ConVars
-local lps		= CreateConVar("ph_enable_last_prop_standing", "1", { FCVAR_SERVER_CAN_EXECUTE, FCVAR_REPLICATED, FCVAR_NOTIFY }, "Give the last prop alive a gun?")
-
 -- PlayerID on Team Specific
 local plnames	= CreateConVar("ph_enable_plnames", "0", { FCVAR_SERVER_CAN_EXECUTE, FCVAR_REPLICATED, FCVAR_ARCHIVE, FCVAR_NOTIFY }, "Serverside control for if a clients see client\'s team player names through walls.")
 
