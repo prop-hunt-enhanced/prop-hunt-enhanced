@@ -30,7 +30,7 @@ function lastPropStandingWeapon()
     end
 end
 lastPropStandingWeapon()
-cvars.AddChangeCallback("ph_last_prop_standing_weapon", lastPropStandingSetup())
+cvars.AddChangeCallback("ph_last_prop_standing_weapon", lastPropStandingWeapon())
 
 hook.Add("WeaponEquip", "LastPropStandingNoHands", function(wep, ply)
 	if ply:Team() == TEAM_PROPS then
