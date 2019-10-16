@@ -12,6 +12,14 @@ for _, sound in pairs(PHE.LPS.SOUNDS) do
     resource.AddFile("sound/lps/" .. sound)
 end
 
+function lastPropStandingWeapon()
+	if !(GetConVar("ph_last_prop_standing_weapon"):GetString() == "random") then
+        PHE.LPS.WEAPON = GetConVar("ph_last_prop_standing_weapon"):GetString()
+    end
+end
+lastPropStandingWeapon()
+cvars.AddChangeCallback("ph_last_prop_standing_weapon", lastPropStandingWeapon())
+
 include("sv_lps_config.lua")
 
 function lastPropStandingSetup()
@@ -22,15 +30,19 @@ function lastPropStandingSetup()
     end
 end
 lastPropStandingSetup()
-cvars.AddChangeCallback("ph_enable_last_prop_standing", lastPropStandingSetup())
+cvars.AddChangeCallback("ph_enable_last_prop_standing", lastPropStandingSetup
 
-function lastPropStandingWeapon()
-	if !(GetConVar("ph_last_prop_standing_weapon"):GetString() == "random") then
-        PHE.LPS.WEAPON = GetConVar("ph_last_prop_standing_weapon"):GetString()
+hook.Add("PlayerCanPickupWeapon", "LastPropStandingWeaponPickup", function(ply, ent)
+    if PHE.LPS && GetConVar("ph_enable_last_prop_standing"):GetBool() && ply:Team() == TEAM_PROPS && GAMEMODE:GetTeamAliveCounts()[TEAM_PROPS] == 1 && ent:GetClass() == PHE.LPS.WEAPON then
+		return true
+	end
+end)
+
+hook.Add("EntityTakeDamage", "LastPropStandingNoHunterSelfExplode", function(ent, dmginfo)
+    if GAMEMODE:InRound() && ent && ent:IsPlayer() && ent:Alive() && ent:Team() == TEAM_HUNTERS && dmginfo:GetAttacker() && dmginfo:GetAttacker():IsPlayer() && dmginfo:GetAttacker():Team() == TEAM_HUNTERS && dmginfo:IsExplosionDamage() then
+        return true
     end
-end
-lastPropStandingWeapon()
-cvars.AddChangeCallback("ph_last_prop_standing_weapon", lastPropStandingWeapon())
+end)
 
 hook.Add("WeaponEquip", "LastPropStandingNoHands", function(wep, ply)
 	if ply:Team() == TEAM_PROPS then

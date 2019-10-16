@@ -224,16 +224,12 @@ function EntityTakeDamage(ent, dmginfo)
 			hook.Call("PH_HunterDeathPenalty", nil, att)
 		end
 	end
-
-    if GAMEMODE:InRound() && ent && ent:IsPlayer() && ent:Alive() && ent:Team() == TEAM_HUNTERS && att && att:IsPlayer() && att:Team() == TEAM_HUNTERS && dmginfo:IsExplosionDamage() then
-        return true
-    end
 end
 hook.Add("EntityTakeDamage", "PH_EntityTakeDamage", EntityTakeDamage)
 
 -- Called when player tries to pickup a weapon
 function GM:PlayerCanPickupWeapon(pl, ent)
-    if pl:Team() != TEAM_HUNTERS && !(PHE.LPS && GetConVar("ph_enable_last_prop_standing"):GetBool() && pl:Team() == TEAM_PROPS && GAMEMODE:GetTeamAliveCounts()[TEAM_PROPS] == 1 && ent:GetClass() == PHE.LPS.WEAPON) then
+	if pl:Team() != TEAM_HUNTERS then
 		return false
 	end
 	return true
