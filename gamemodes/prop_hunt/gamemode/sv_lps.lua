@@ -30,7 +30,7 @@ function lastPropStandingSetup()
     end
 end
 lastPropStandingSetup()
-cvars.AddChangeCallback("ph_enable_last_prop_standing", lastPropStandingSetup
+cvars.AddChangeCallback("ph_enable_last_prop_standing", lastPropStandingSetup())
 
 hook.Add("PlayerCanPickupWeapon", "LastPropStandingWeaponPickup", function(ply, ent)
     if PHE.LPS && GetConVar("ph_enable_last_prop_standing"):GetBool() && ply:Team() == TEAM_PROPS && GAMEMODE:GetTeamAliveCounts()[TEAM_PROPS] == 1 && ent:GetClass() == PHE.LPS.WEAPON then
