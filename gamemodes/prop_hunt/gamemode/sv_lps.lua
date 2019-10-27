@@ -1,4 +1,5 @@
-PHE.LPS = {}
+AddCSLuaFile("sh_lps.lua")
+include("sh_lps.lua")
 
 PHE.LPS.SOUNDS = {}
 for _, sound in pairs(file.Find("sound/lps/*.wav", "GAME")) do
@@ -12,28 +13,28 @@ for _, sound in pairs(PHE.LPS.SOUNDS) do
     resource.AddFile("sound/lps/" .. sound)
 end
 
-function lastPropStandingWeapon()
-	if !(GetConVar("ph_last_prop_standing_weapon"):GetString() == "random") then
-        PHE.LPS.WEAPON = GetConVar("ph_last_prop_standing_weapon"):GetString()
+function lpsWeaponSetup()
+	if !(GetConVar("lps_weapon"):GetString() == "random") then
+        PHE.LPS.WEAPON = GetConVar("lps_weapon"):GetString()
     end
 end
-lastPropStandingWeapon()
-cvars.AddChangeCallback("ph_last_prop_standing_weapon", lastPropStandingWeapon())
+lpsWeaponSetup()
+cvars.AddChangeCallback("lps_weapon", lpsWeaponSetup())
 
 include("sv_lps_config.lua")
 
-function lastPropStandingSetup()
-    if GetConVar("ph_enable_last_prop_standing"):GetBool() then
+function lpsSetup()
+    if GetConVar("lps_enable"):GetBool() then
         GM.NoPlayerPlayerDamage = false
     else
         GM.NoPlayerPlayerDamage = true
     end
 end
-lastPropStandingSetup()
-cvars.AddChangeCallback("ph_enable_last_prop_standing", lastPropStandingSetup())
+lpsSetup()
+cvars.AddChangeCallback("lps_enable", lpsSetup())
 
 hook.Add("PlayerCanPickupWeapon", "LastPropStandingWeaponPickup", function(ply, ent)
-    if PHE.LPS && GetConVar("ph_enable_last_prop_standing"):GetBool() && ply:Team() == TEAM_PROPS && GAMEMODE:GetTeamAliveCounts()[TEAM_PROPS] == 1 && ent:GetClass() == PHE.LPS.WEAPON then
+    if GetConVar("lps_enable"):GetBool() && ply:Team() == TEAM_PROPS && GAMEMODE:GetTeamAliveCounts()[TEAM_PROPS] == 1 && ent:GetClass() == PHE.LPS.WEAPON then
 		return true
 	end
 end)
@@ -50,11 +51,11 @@ hook.Add("WeaponEquip", "LastPropStandingNoHands", function(wep, ply)
     end
 end)
 
-function lastPropStandingTest(ply)
-    if GetConVar("ph_enable_last_prop_standing"):GetBool() && !(ply:Team() == TEAM_HUNTERS || ply:Team() == TEAM_UNASSIGNED || ply:Team() == TEAM_SPECTATOR) then
+function lpsTest(ply)
+    if GetConVar("lps_enable"):GetBool() && !(ply:Team() == TEAM_HUNTERS || ply:Team() == TEAM_UNASSIGNED || ply:Team() == TEAM_SPECTATOR) then
         timer.Simple(0.1, function()
 	        if GAMEMODE:GetTeamAliveCounts()[TEAM_PROPS] == 1 then
-		        if GetConVar("ph_last_prop_standing_weapon"):GetString() == "random" then
+		        if GetConVar("lps_weapon"):GetString() == "random" then
                     PHE.LPS.WEAPON = PHE.LPS.WEAPONS[math.random(#PHE.LPS.WEAPONS)]
                 end
                 for _, pl in pairs(team.GetPlayers(TEAM_PROPS)) do
@@ -72,5 +73,5 @@ function lastPropStandingTest(ply)
         end)
     end
 end
-hook.Add("PostPlayerDeath", "DeathLastPropStandingTest", lastPropStandingTest)
-hook.Add("PlayerDisconnected", "DisconnectLastPropStandingTest", lastPropStandingTest)
+hook.Add("PostPlayerDeath", "DeathLastPropStandingTest", lpsTest)
+hook.Add("PlayerDisconnected", "DisconnectLastPropStandingTest", lpsTest)

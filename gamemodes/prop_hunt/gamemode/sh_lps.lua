@@ -1,5 +1,10 @@
-local lpsconvar = CreateConVar("ph_enable_last_prop_standing", "1", {FCVAR_SERVER_CAN_EXECUTE, FCVAR_REPLICATED, FCVAR_NOTIFY}, "Give the last prop alive a weapon?")
-local wepconvar = CreateConVar("ph_last_prop_standing_weapon", "random", {FCVAR_SERVER_CAN_EXECUTE, FCVAR_REPLICATED, FCVAR_NOTIFY}, "Give the last prop which weapon (by class name or \"random\" from the config)?")
+local lpsconvar = CreateConVar("lps_enable", "1", {FCVAR_SERVER_CAN_EXECUTE, FCVAR_REPLICATED, FCVAR_NOTIFY}, "Give the last prop alive a weapon?")
+local wepconvar = CreateConVar("lps_weapon", "random", {FCVAR_SERVER_CAN_EXECUTE, FCVAR_REPLICATED, FCVAR_NOTIFY}, "Give which weapon (\"random\" from the config or by class name)?")
+local haloconvar = CreateConVar("lps_halo_enable", "1", {FCVAR_SERVER_CAN_EXECUTE, FCVAR_REPLICATED, FCVAR_NOTIFY}, "Draw a halo effect around the last prop?")
+local haloconvar = CreateConVar("lps_halo_color", "#14FA00", {FCVAR_SERVER_CAN_EXECUTE, FCVAR_REPLICATED, FCVAR_NOTIFY}, "Draw what color (\"rainbow\" or by hex code) of halo effect?")
+local haloconvar = CreateConVar("lps_halo_walls", "0", {FCVAR_SERVER_CAN_EXECUTE, FCVAR_REPLICATED, FCVAR_NOTIFY}, "Draw the halo effect through walls?")
+
+PHE.LPS = {}
 
 hook.Add("EntityFireBullets", "LastPropStandingAim", function(ply, blt)
     if ply:IsPlayer() && ply:Team() == TEAM_PROPS then

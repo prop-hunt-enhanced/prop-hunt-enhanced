@@ -210,22 +210,6 @@
 			"type"		"Numeric"
 			"default"	"1"
 		}
-		23
-		{
-			"name"		"ph_enable_last_prop_standing"
-			"text"		"Enable Last Prop Standing"
-			"help"		"Should the last prop alive be given a weapon?"
-			"type"		"CheckBox"
-			"default"	"1"
-		}
-		24
-		{
-			"name"		"ph_last_prop_standing_weapon"
-			"text"		"Last Prop Standing Weapon"
-			"help"		"Weapon given to last prop (or random)"
-			"type"		"Text"
-			"default"	"random"
-		}
 	}
 
 }

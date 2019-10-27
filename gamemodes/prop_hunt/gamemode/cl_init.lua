@@ -37,6 +37,8 @@ include("cl_autotaunt.lua")
 
 include("cl_credits.lua")
 
+include("cl_lps.lua")
+
 -- Called immediately after starting the gamemode 
 function Initialize()
 	cHullz 	= 64

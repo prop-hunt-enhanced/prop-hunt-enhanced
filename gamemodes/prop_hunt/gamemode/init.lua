@@ -13,6 +13,8 @@ AddCSLuaFile("cl_targetid.lua")
 AddCSLuaFile("cl_autotaunt.lua")
 AddCSLuaFile("cl_credits.lua")
 
+AddCSLuaFile("cl_lps.lua")
+
 -- Include the required lua files
 include("sv_networkfunctions.lua")
 include("sh_init.lua")
