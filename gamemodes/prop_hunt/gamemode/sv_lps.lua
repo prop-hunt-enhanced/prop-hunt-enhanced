@@ -13,16 +13,6 @@ for _, sound in pairs(PHE.LPS.SOUNDS) do
     resource.AddFile("sound/lps/" .. sound)
 end
 
-function lpsWeaponSetup()
-	if !(GetConVar("lps_weapon"):GetString() == "random") then
-        PHE.LPS.WEAPON = GetConVar("lps_weapon"):GetString()
-    end
-end
-lpsWeaponSetup()
-cvars.AddChangeCallback("lps_weapon", lpsWeaponSetup())
-
-include("sv_lps_config.lua")
-
 function lpsSetup()
     if GetConVar("lps_enable"):GetBool() then
         GM.NoPlayerPlayerDamage = false

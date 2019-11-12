@@ -22,11 +22,11 @@ function lpsHaloSetup()
                 }
             else
                 PHE.LPS.HALO = {R = 20, G = 250, B = 0}
-                print("[WARN] LPS: Convar lps_halo_color is not \"rainbow\" or a valid hex code, using default #14FA00")
+                print("[WARN] PHE LPS: Convar lps_halo_color is not \"rainbow\" or a valid hex code, using default #14FA00")
             end
         else
             PHE.LPS.HALO = {R = 20, G = 250, B = 0}
-            print("[WARN] LPS: Convar lps_halo_color is not \"rainbow\" or a valid hex code, using default #14FA00")
+            print("[WARN] PHE LPS: Convar lps_halo_color is not \"rainbow\" or a valid hex code, using default #14FA00")
         end
     end
 end
@@ -34,18 +34,24 @@ lpsHaloSetup()
 cvars.AddChangeCallback("lps_halo_color", lpsHaloSetup())
 
 hook.Add("PreDrawHalos", "LastPropStandingHalo", function()
-    propCount = 0
-	for _, ply in pairs(team.GetPlayers(TEAM_PROPS)) do
-		if ply:Alive() then
-			propCount = propCount + 1
-		end
-	end
+    if GetConVar("lps_enable"):GetBool() && GetConVar("lps_halo_enable"):GetBool() then
+        lpsActive = false
+        for _, ply in pairs(team.GetPlayers(TEAM_PROPS)) do
+            if GetConVar("lps_weapon"):GetString() == "random" then
+                for _, wep in pairs(PHE.LPS.WEAPONS) do
+                    lpsActive = lpsActive || ply:HasWeapon(wep)
+                end
+            else
+                lpsActive = ply:HasWeapon(GetConVar("lps_weapon"):GetString())
+            end
+        end
 
-	if GetConVar("lps_enable"):GetBool() && GetConVar("lps_halo_enable"):GetBool() && propCount == 1 then
-        if GetConVar("lps_halo_color"):GetString() == "rainbow" then
-            halo.Add(ents.FindByClass("ph_prop"), Color(math.random(0, 255), math.random(0, 255), math.random(0, 255)), 1.2, 1.2, 1, true, GetConVar("lps_halo_walls"):GetBool())
-        else
-            halo.Add(ents.FindByClass("ph_prop"), Color(PHE.LPS.HALO.R, PHE.LPS.HALO.G, PHE.LPS.HALO.B), 1.2, 1.2, 1, true, GetConVar("lps_halo_walls"):GetBool())
+	    if lpsActive then
+            if GetConVar("lps_halo_color"):GetString() == "rainbow" then
+                halo.Add(ents.FindByClass("ph_prop"), Color(math.random(0, 255), math.random(0, 255), math.random(0, 255)), 1.2, 1.2, 1, true, GetConVar("lps_halo_walls"):GetBool())
+            else
+                halo.Add(ents.FindByClass("ph_prop"), Color(PHE.LPS.HALO.R, PHE.LPS.HALO.G, PHE.LPS.HALO.B), 1.2, 1.2, 1, true, GetConVar("lps_halo_walls"):GetBool())
+            end
         end
     end
 end)

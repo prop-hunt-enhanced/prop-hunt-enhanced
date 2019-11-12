@@ -6,6 +6,17 @@ local haloconvar = CreateConVar("lps_halo_walls", "0", {FCVAR_SERVER_CAN_EXECUTE
 
 PHE.LPS = {}
 
+function lpsWeaponSetup()
+	if !(GetConVar("lps_weapon"):GetString() == "random") then
+        PHE.LPS.WEAPON = GetConVar("lps_weapon"):GetString()
+    end
+end
+lpsWeaponSetup()
+cvars.AddChangeCallback("lps_weapon", lpsWeaponSetup())
+
+AddCSLuaFile("sh_lps_config.lua")
+include("sh_lps_config.lua")
+
 hook.Add("EntityFireBullets", "LastPropStandingAim", function(ply, blt)
     if ply:IsPlayer() && ply:Team() == TEAM_PROPS then
         local eyeTrace = {}
