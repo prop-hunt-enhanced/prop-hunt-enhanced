@@ -1,7 +1,5 @@
 include("sh_lps.lua")
 
-math.randomseed(os.time())
-
 function lpsHaloSetup()
     if GetConVar("lps_halo_color"):GetString() == "rainbow" then
         PHE.LPS.HALO = {}

@@ -1,8 +1,13 @@
-local lpsconvar = CreateConVar("lps_enable", "1", {FCVAR_SERVER_CAN_EXECUTE, FCVAR_REPLICATED, FCVAR_NOTIFY}, "Give the last prop alive a weapon?")
-local wepconvar = CreateConVar("lps_weapon", "random", {FCVAR_SERVER_CAN_EXECUTE, FCVAR_REPLICATED, FCVAR_NOTIFY}, "Give which weapon (\"random\" from the config or by class name)?")
-local haloconvar = CreateConVar("lps_halo_enable", "1", {FCVAR_SERVER_CAN_EXECUTE, FCVAR_REPLICATED, FCVAR_NOTIFY}, "Draw a halo effect around the last prop?")
-local haloconvar = CreateConVar("lps_halo_color", "#14FA00", {FCVAR_SERVER_CAN_EXECUTE, FCVAR_REPLICATED, FCVAR_NOTIFY}, "Draw what color (\"rainbow\" or by hex code) of halo effect?")
-local haloconvar = CreateConVar("lps_halo_walls", "0", {FCVAR_SERVER_CAN_EXECUTE, FCVAR_REPLICATED, FCVAR_NOTIFY}, "Draw the halo effect through walls?")
+CreateConVar("lps_enable", "1", {FCVAR_SERVER_CAN_EXECUTE, FCVAR_REPLICATED, FCVAR_NOTIFY}, "Give the last prop alive a weapon?")
+CreateConVar("lps_weapon", "random", {FCVAR_SERVER_CAN_EXECUTE, FCVAR_REPLICATED, FCVAR_NOTIFY}, "Give which weapon (\"random\" from the config or by class name)?")
+CreateConVar("lps_halo_enable", "1", {FCVAR_SERVER_CAN_EXECUTE, FCVAR_REPLICATED, FCVAR_NOTIFY}, "Draw a halo effect around the last prop?")
+CreateConVar("lps_halo_color", "#14FA00", {FCVAR_SERVER_CAN_EXECUTE, FCVAR_REPLICATED, FCVAR_NOTIFY}, "Draw a halo effect of what color (\"rainbow\" or by hex code)?")
+CreateConVar("lps_halo_walls", "0", {FCVAR_SERVER_CAN_EXECUTE, FCVAR_REPLICATED, FCVAR_NOTIFY}, "Draw the halo effect through walls?")
+CreateConVar("lps_trail_enable", "1", {FCVAR_SERVER_CAN_EXECUTE, FCVAR_REPLICATED, FCVAR_NOTIFY}, "Draw a trail behind the last prop?")
+CreateConVar("lps_trail_color", "#FFFFFF", {FCVAR_SERVER_CAN_EXECUTE, FCVAR_REPLICATED, FCVAR_NOTIFY}, "Draw a trail of what color (by hex code)?")
+CreateConVar("lps_trail_texture", "trails/laser", {FCVAR_SERVER_CAN_EXECUTE, FCVAR_REPLICATED, FCVAR_NOTIFY}, "Draw a trail with what texture?")
+
+math.randomseed(os.time())
 
 PHE.LPS = {}
 
