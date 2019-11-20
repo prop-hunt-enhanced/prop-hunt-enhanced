@@ -69,7 +69,7 @@ LANG.DERMA.TEAMSELECT = "Выберите команду"
 
 -- F1 screeen
 LANG.DERMA.RTV = "Голосование за смену карты (RTV)"
-LANG.DERMA.PHMENU = "Prop Hunt Menu"
+LANG.DERMA.PHMENU = "Меню Prop Hunt"
 LANG.DERMA.CHANGETEAM = "Сменить команду"
 
 -- Scoreboard
