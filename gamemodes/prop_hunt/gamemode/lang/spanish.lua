@@ -1,4 +1,4 @@
-LANG = {}
+local LANG = {}
 -- Cualquier persona es bienvenida a mejorar esta traduccion (soy argentino y no se la regla de las tildes) - Fafy
 
 -- Language code and name
