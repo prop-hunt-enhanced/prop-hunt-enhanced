@@ -569,7 +569,7 @@ function ph_BaseMainWindow(ply, cmd, args)
 		Ph:CreateVGUIType("ph_hud_use_new", "check", "CLIENT", gridpl, PHE.LANG.PHEMENU.PLAYER.ph_hud_use_new)
 		Ph:CreateVGUIType("ph_show_tutor_control", "check", "CLIENT", gridpl, PHE.LANG.PHEMENU.PLAYER.ph_show_tutor_control)
 		Ph:CreateVGUIType("ph_show_custom_crosshair", "check", "CLIENT", gridpl, PHE.LANG.PHEMENU.PLAYER.ph_show_custom_crosshair)
-		Ph:CreateVGUIType("ph_show_team_topbar", "check", "CLIENT", gridpl, LANG.PHEMENU.PLAYER.ph_show_team_topbar)
+		Ph:CreateVGUIType("ph_show_team_topbar", "check", "CLIENT", gridpl, PHE.LANG.PHEMENU.PLAYER.ph_show_team_topbar)
 
 	tab:AddSheet(PHE.LANG.PHEMENU.PLAYER.TAB, panel, "icon16/user_orange.png")
 	end

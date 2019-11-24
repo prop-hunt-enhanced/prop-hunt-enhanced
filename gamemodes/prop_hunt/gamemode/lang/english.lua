@@ -1,4 +1,4 @@
-LANG = {}
+local LANG = {}
 
 -- Language code and name
 LANG.Code = "en"

@@ -37,7 +37,7 @@ hook.Add("PH_CustomTabMenu", "PHE.About", function(tab, pVgui)
 	}
 
 	pVgui("","label","PHE.TitleFont",grid, label.title )
-	pVgui("","label","Trebuchet24",grid, PHE.LANG.PHEMENU.ABOUT.CURRENTVER .. label.version .. " | " .. LANG.PHEMENU.ABOUT.CURRENTREV .. label.rev)
+	pVgui("","label","Trebuchet24",grid, PHE.LANG.PHEMENU.ABOUT.CURRENTVER .. label.version .. " | " .. PHE.LANG.PHEMENU.ABOUT.CURRENTREV .. label.rev)
 	pVgui("","label","Trebuchet24",grid, PHE.LANG.PHEMENU.ABOUT.ENJOYING )
 	pVgui("","label",false,grid, PHE.LANG.PHEMENU.ABOUT.LINKS )
 	pVgui("","btn",{max = 3,textdata = {
@@ -46,7 +46,7 @@ hook.Add("PH_CustomTabMenu", "PHE.About", function(tab, pVgui)
 		[3] = { PHE.LANG.PHEMENU.ABOUT.GITHUB, 	  	  function() gui.OpenURL(label.lgit) end},
 	}},grid,"")
 	pVgui("spacer1","spacer",nil,grid,"" )
-	pVgui("","label","Trebuchet24",grid, LANG.PHEMENU.ABOUT.THANKS .. "\n" .. label.credits )
+	pVgui("","label","Trebuchet24",grid, PHE.LANG.PHEMENU.ABOUT.THANKS .. "\n" .. label.credits )
 
 	tab:AddSheet(PHE.LANG.PHEMENU.ABOUT.TAB,panel,"icon16/information.png")
 end)
