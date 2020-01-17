@@ -1,17 +1,87 @@
 AddCSLuaFile("sh_lps.lua")
 include("sh_lps.lua")
 
-PHE.LPS.SOUNDS = {}
-for _, sound in pairs(file.Find("sound/lps/*.wav", "GAME")) do
-    table.insert(PHE.LPS.SOUNDS, sound)
+PHE.LPS.SOUND = {}
+
+globalSoundFilter = RecipientFilter()
+globalSoundFilter:AddAllPlayers()
+
+PHE.LPS.SOUND.ALERT = {}
+for _, filename in pairs(file.Find("sound/lps/alert/*.mp3", "GAME")) do
+	local soundTable = {}
+	soundTable.sound = CreateSound(game.GetWorld(), "lps/alert/" .. filename, globalSoundFilter)
+	soundTable.sound:SetSoundLevel(0)
+	soundTable.filename = filename
+    table.insert(PHE.LPS.SOUND.ALERT, soundTable)
+
+	resource.AddFile("sound/lps/alert/" .. filename)
 end
-for _, sound in pairs(file.Find("sound/lps/*.mp3", "GAME")) do
-    table.insert(PHE.LPS.SOUNDS, sound)
+for _, filename in pairs(file.Find("sound/lps/alert/*.wav", "GAME")) do
+	local soundTable = {}
+	soundTable.sound = CreateSound(game.GetWorld(), "lps/alert/" .. filename, globalSoundFilter)
+	soundTable.sound:SetSoundLevel(0)
+	soundTable.filename = filename
+    table.insert(PHE.LPS.SOUND.ALERT, soundTable)
+
+	resource.AddFile("sound/lps/alert/" .. filename)
+end
+for _, filename in pairs(file.Find("sound/lps/alert/*.ogg", "GAME")) do
+	local soundTable = {}
+	soundTable.sound = CreateSound(game.GetWorld(), "lps/alert/" .. filename, globalSoundFilter)
+	soundTable.sound:SetSoundLevel(0)
+	soundTable.filename = filename
+    table.insert(PHE.LPS.SOUND.ALERT, soundTable)
+
+	resource.AddFile("sound/lps/alert/" .. filename)
 end
 
-for _, sound in pairs(PHE.LPS.SOUNDS) do
-    resource.AddFile("sound/lps/" .. sound)
+PHE.LPS.SOUND.MUSIC = {}
+for _, filename in pairs(file.Find("sound/lps/music/*.mp3", "GAME")) do
+	local soundTable = {}
+	soundTable.sound = CreateSound(game.GetWorld(), "lps/music/" .. filename, globalSoundFilter)
+	soundTable.sound:SetSoundLevel(0)
+	soundTable.filename = filename
+    table.insert(PHE.LPS.SOUND.MUSIC, soundTable)
+
+	resource.AddFile("sound/lps/music/" .. filename)
 end
+for _, filename in pairs(file.Find("sound/lps/music/*.wav", "GAME")) do
+	local soundTable = {}
+	soundTable.sound = CreateSound(game.GetWorld(), "lps/music/" .. filename, globalSoundFilter)
+	soundTable.sound:SetSoundLevel(0)
+	soundTable.filename = filename
+    table.insert(PHE.LPS.SOUND.MUSIC, soundTable)
+
+	resource.AddFile("sound/lps/music/" .. filename)
+end
+for _, filename in pairs(file.Find("sound/lps/music/*.ogg", "GAME")) do
+	local soundTable = {}
+	soundTable.sound = CreateSound(game.GetWorld(), "lps/music/" .. filename, globalSoundFilter)
+	soundTable.sound:SetSoundLevel(0)
+	soundTable.filename = filename
+    table.insert(PHE.LPS.SOUND.MUSIC, soundTable)
+
+	resource.AddFile("sound/lps/music/" .. filename)
+end
+
+function lpsMusicRecursion()
+	if PHE.LPS.SOUND.NEXT ~= {} then
+		PHE.LPS.SOUND.CURRENT = PHE.LPS.SOUND.NEXT
+		PHE.LPS.SOUND.CURRENT.sound:Play()
+
+		repeat
+			PHE.LPS.SOUND.NEXT = PHE.LPS.SOUND.MUSIC[math.random(#PHE.LPS.SOUND.MUSIC)]
+		until PHE.LPS.SOUND.NEXT ~= PHE.LPS.SOUND.CURRENT || #PHE.LPS.SOUND.MUSIC <= 1
+
+		timer.Simple(SoundDuration("lps/music/" .. PHE.LPS.SOUND.CURRENT.filename), lpsMusicRecursion)
+	end
+end
+
+hook.Add("PH_RoundEnd", "LastPropStandingStopSounds", function()
+	PHE.LPS.SOUND.CURRENT.sound:Stop()
+	PHE.LPS.SOUND.NEXT = {}
+	PHE.LPS.SOUND.CURRENT = {}
+end)
 
 function lpsTrailSetup()
     nonHex, hexLength = string.gsub(GetConVar("lps_trail_color"):GetString(), "[%dABCDEFabcdef]", "")
@@ -88,8 +158,14 @@ function lpsTest(ply)
                         end
 				    
 				        PrintMessage(HUD_PRINTCENTER, PHE.LANG.HUD.LASTPROP)
-                        BroadcastLua("surface.PlaySound(\"lps/" .. PHE.LPS.SOUNDS[math.random(#PHE.LPS.SOUNDS)] .. "\")")
-                    
+						PHE.LPS.SOUND.CURRENT = PHE.LPS.ALERT[math.random(#PHE.LPS.ALERT)]
+						PHE.LPS.SOUND.CURRENT.sound:Play()
+
+						repeat
+							PHE.LPS.SOUND.NEXT = PHE.LPS.MUSIC[math.random(#PHE.LPS.MUSIC)]
+						until PHE.LPS.SOUND.NEXT ~= PHE.LPS.SOUND.CURRENT || #PHE.LPS.MUSIC <= 1
+						timer.Simple(SoundDuration("lps/alert/" .. PHE.LPS.SOUND.CURRENT.filename), lpsMusicRecursion)
+						
                         return
 			        end
 		        end
