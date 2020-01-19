@@ -1,4 +1,4 @@
-LANG = {}
+local LANG = {}
 -- Cualquier persona es bienvenida a mejorar esta traduccion (soy argentino y no se la regla de las tildes) - Fafy
 
 -- Language code and name
@@ -38,6 +38,8 @@ LANG.HUD.DRAW = "Empate, todos pierden!"
 
 LANG.HUD.BLINDTIME = "Los Hunters serán liberados en %s"
 LANG.HUD.BLINDEND = "Listos o no, aquí vamos!"
+
+LANG.HUD.LASTPROP = "¡Al último prop se le ha dado una pistola!"
 
 -- Kill text (X killed Y)
 LANG.DEATHNOTICE = {}

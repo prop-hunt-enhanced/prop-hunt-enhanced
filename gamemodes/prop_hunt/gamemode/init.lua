@@ -13,6 +13,8 @@ AddCSLuaFile("cl_targetid.lua")
 AddCSLuaFile("cl_autotaunt.lua")
 AddCSLuaFile("cl_credits.lua")
 
+AddCSLuaFile("cl_lps.lua")
+
 -- Include the required lua files
 include("sv_networkfunctions.lua")
 include("sh_init.lua")
@@ -22,6 +24,8 @@ include("sv_autotaunt.lua")
 include("sv_tauntwindow.lua")
 
 include("sv_bbox_addition.lua")
+
+include("sv_lps.lua")
 
 -- Server only constants
 PHE.EXPLOITABLE_DOORS = {
