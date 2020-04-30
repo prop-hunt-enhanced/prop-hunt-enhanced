@@ -24,12 +24,12 @@ hook.Add("PH_CustomTabMenu", "PHE.About", function(tab, pVgui)
 
 	local label = {
 		title 	= "Prop Hunt: Enhanced",
-		author	= "Enhanced by: Wolvindra-Vinzuerio, D4UNKN0WNM4N & Fafy.",
+		author	= "Enhanced by: Wolvindra-Vinzuerio, D4UNKN0WNM4N, Lucky & Fafy.",
 		version = GAMEMODE._VERSION,
 		rev 	= GAMEMODE.REVISION,
-		credits	= "Yam, Godfather, adk, Lucas2107, Jonpopnycorn, Thundernerd,  stephanlachnit",
+		credits	= "Yam, Lucky, Godfather, adk, Lucas2107, Jonpopnycorn, Thundernerd,  stephanlachnit",
 		lgit	= "https://github.com/prop-hunt-enhanced/prop-hunt-enhanced/",
-		lhome	= "http://www.dralga.com/phe/",
+		lhome	= "https://prophuntenhanced.xyz/",
 		ldonate = GAMEMODE.DONATEURL,
 		lwiki	= "https://prophunt.wolvindra.net/?go=phe_faq",
 		lklog	= "https://prophunt.wolvindra.net/?go=changelog",
