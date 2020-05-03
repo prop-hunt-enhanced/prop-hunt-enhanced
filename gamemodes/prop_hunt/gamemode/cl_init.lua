@@ -302,7 +302,16 @@ function PHEDrawPropselectHalos()
 			trace.start = LocalPlayer():EyePos() + Vector(0, 0, 8)
 			trace.endpos = LocalPlayer():EyePos() + Vector(0, 0, 8) + LocalPlayer():EyeAngles():Forward() * 100
 		end
-		trace.filter = ents.FindByClass("ph_prop")
+
+		local filter = {} -- We need to filter out players and the ph_prop.
+
+		for k,v in pairs(ents.GetAll()) do
+			if v:GetClass() == "ph_prop" or v:GetClass() == "player" then
+				table.insert(filter, v)
+			end
+		end
+
+		trace.filter = filter
 
 		local trace2 = util.TraceLine(trace)
 		if trace2.Entity && trace2.Entity:IsValid() && table.HasValue(PHE.USABLE_PROP_ENTITIES, trace2.Entity:GetClass()) then
