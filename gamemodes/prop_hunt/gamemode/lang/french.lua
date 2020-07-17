@@ -15,7 +15,7 @@ Pour afficher l'aide, Clic sur 'Prop Hunt Menu'.
 		- Optimisations
 		- Et plus encore !
 
-	Traduction par lucas2107!
+	Traduction par lucas2107 et TR1NITY !
 	]]
 
 -- HUD elements
@@ -91,8 +91,8 @@ LANG.CHAT.SWAP = "Les équipes ont été échangées !"
 LANG.CHAT.JOINED = " a rejoint "
 LANG.CHAT.JOINEDTHE = " a rejoint les "
 
-LANG.CHAT.SWAPBALANCE = "%s has been changed to %s for team balance."
-LANG.CHAT.SWAPBALANCEYOU = "You were swapped to achieve perfect balance."
+LANG.CHAT.SWAPBALANCE = "%s a été remplacé par %s pour l'équilibre de l'équipe."
+LANG.CHAT.SWAPBALANCEYOU = "Vous avez été échangé pour atteindre un équilibre parfait."
 
 LANG.CHAT.RANDOM_SPECTATORS = {
 	"pour regarder et se détendre.",
@@ -141,33 +141,33 @@ LANG.PHEMENU.ADMINS.TAB = "Administration"
 
 LANG.PHEMENU.ADMINS.OPTIONS = "Options Serveur du mode de jeux (Visible uniquement pour les admins)"
 
-LANG.PHEMENU.ADMINS.ph_language = "Gamemode language (requires map change)"
+LANG.PHEMENU.ADMINS.ph_language = "Langue du mode de jeu (nécessite un changement de carte)"
 LANG.PHEMENU.ADMINS.ph_use_custom_plmodel = "Activer les modèles customisés pour les Hunters"
 LANG.PHEMENU.ADMINS.ph_use_custom_plmodel_for_prop = "Activer les modèles customisés pour les Props - Doit être activé pour les Hunters."
 LANG.PHEMENU.ADMINS.ph_customtaunts_delay = "Délai des taunts customisés (Secondes)"
 LANG.PHEMENU.ADMINS.ph_normal_taunt_delay = "Délai des taunts normaux (Secondes)"
 LANG.PHEMENU.ADMINS.ph_autotaunt_enabled = "Activer l'Autotaunt"
 LANG.PHEMENU.ADMINS.ph_autotaunt_delay = "Délai de l'Autotaunt (Secondes)"
-LANG.PHEMENU.ADMINS.ph_forcejoinbalancedteams = "Force players to even out teams upon joining"
-LANG.PHEMENU.ADMINS.ph_autoteambalance = "Automatically even out teams at the start of a round"
-LANG.PHEMENU.ADMINS.ph_allow_prop_pickup = "Allow pick up of small props (0 = No; 1 = Yes; 2 = Only Hunters)"
+LANG.PHEMENU.ADMINS.ph_forcejoinbalancedteams = "Forcer les joueurs à équilibré les équipes"
+LANG.PHEMENU.ADMINS.ph_autoteambalance = "Équilibre automatiquement les équipes au début d'une manche"
+LANG.PHEMENU.ADMINS.ph_allow_prop_pickup = "Autoriser le ramassage de props (0 = non; 1 = oui; 2 = uniquement les hunters)"
 
-LANG.PHEMENU.ADMINS.ph_notice_prop_rotation = "Display 'Prop Rotation' notification on every Prop Spawns"
-LANG.PHEMENU.ADMINS.ph_prop_camera_collisions = "Enable Prop Camera collision to the wall"
-LANG.PHEMENU.ADMINS.ph_freezecam = "Enable Freecam features for team props"
-LANG.PHEMENU.ADMINS.ph_prop_collision = "Enable Prop collide on each other prop players"
-LANG.PHEMENU.ADMINS.ph_swap_teams_every_round = "Swap team every round - Disabling means team will stay forever"
-LANG.PHEMENU.ADMINS.ph_hunter_fire_penalty = "Hunter health penalty"
-LANG.PHEMENU.ADMINS.ph_hunter_kill_bonus = "Hunter kill bonus"
-LANG.PHEMENU.ADMINS.ph_hunter_smg_grenades = "Hunter SMG grenades"
-LANG.PHEMENU.ADMINS.ph_game_time = "Total Game time (Minutes)"
-LANG.PHEMENU.ADMINS.ph_hunter_blindlock_time = "Hunter blindlock time (Seconds)"
-LANG.PHEMENU.ADMINS.ph_round_time = "Game round time (Seconds)"
-LANG.PHEMENU.ADMINS.ph_rounds_per_map = "Total game Rounds per Map"
-LANG.PHEMENU.ADMINS.ph_enable_lucky_balls = "Allow Lucky Balls Features to be spawned on breakable props (Chance is 8%)"
-LANG.PHEMENU.ADMINS.ph_enable_devil_balls = "Allow Devil Balls Features to be spawned when hunter dies (Chance is 70%)"
-LANG.PHEMENU.ADMINS.ph_waitforplayers = "Wait for Players to begin the gameplay"
-LANG.PHEMENU.ADMINS.ph_min_waitforplayers = "Mininum Players to Wait before the game starts (default: 1)"
+LANG.PHEMENU.ADMINS.ph_notice_prop_rotation = "Afficher la notification de «rotation de props» sur chaque apparition au spawns"
+LANG.PHEMENU.ADMINS.ph_prop_camera_collisions = "Activer la collision de la caméra Prop avec le mur"
+LANG.PHEMENU.ADMINS.ph_freezecam = "Activer les fonctionnalités Freecam pour l'équipe props"
+LANG.PHEMENU.ADMINS.ph_prop_collision = "Activer la collision des props avec les autres joueurs"
+LANG.PHEMENU.ADMINS.ph_swap_teams_every_round = "Changer d'équipe à chaque tour - La désactivation de l'option ne changera pas les équipes"
+LANG.PHEMENU.ADMINS.ph_hunter_fire_penalty = "Pénalité de santé du hunter"
+LANG.PHEMENU.ADMINS.ph_hunter_kill_bonus = "Bonus de mise à mort du hunter"
+LANG.PHEMENU.ADMINS.ph_hunter_smg_grenades = "Grenades SMG Hunter"
+LANG.PHEMENU.ADMINS.ph_game_time = "Durée totale du jeu (minutes)"
+LANG.PHEMENU.ADMINS.ph_hunter_blindlock_time = "Temps de verrouillage du hunter (secondes)"
+LANG.PHEMENU.ADMINS.ph_round_time = "Durée de la manche (secondes)"
+LANG.PHEMENU.ADMINS.ph_rounds_per_map = "Total de parties de jeu par map"
+LANG.PHEMENU.ADMINS.ph_enable_lucky_balls = "Permettre aux Lucky Balls d'apparaître sur des props cassables (la chance est de 8%)"
+LANG.PHEMENU.ADMINS.ph_enable_devil_balls = "Permettre aux Devil Balls d'apparaître lorsque le hunter meurt (la chance est de 70%)"
+LANG.PHEMENU.ADMINS.ph_waitforplayers = "Attendre que des joueurs soit présent pour commencé une manche"
+LANG.PHEMENU.ADMINS.ph_min_waitforplayers = "Joueurs Mininum à attendre avant le début de la manche (par défaut: 1)"
 
 LANG.PHEMENU.ADMINS.TAUNTMODES = "Activer les taunts customisés."
 LANG.PHEMENU.ADMINS.TAUNTMODE0 = "Mode [0/F3]: Taunt Aléatoire"
@@ -206,7 +206,7 @@ LANG.PHEMENU.ABOUT.THANKS = "Remerciements spéciaux: "
 LANG.PHEMENU.ABOUT.TAB = "A propos de PHE"
 LANG.PHEMENU.ABOUT.DONATE = "Faire une donation au projet PH:E"
 LANG.PHEMENU.ABOUT.HOME = "Page Officielle PH:E"
-LANG.PHEMENU.ABOUT.GITHUB = "GitHub Repository"
+LANG.PHEMENU.ABOUT.GITHUB = "GitHub"
 
 -- Saving
 PHE.LANGUAGES[LANG.Code] = LANG
