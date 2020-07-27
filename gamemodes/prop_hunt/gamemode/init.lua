@@ -553,7 +553,7 @@ function GM:RoundTimerEnd()
 		return
 	end
 
-	GAMEMODE:RoundEndWithResult(TEAM_PROPS, string.format(LANG.HUD.WIN, "Props"))
+	GAMEMODE:RoundEndWithResult(TEAM_PROPS, string.format(PHE.LANG.HUD.WIN, "Props"))
 	PHE.VOICE_IS_END_ROUND = 1
 	ForceCloseTauntWindow(1)
 
