@@ -19,8 +19,8 @@ LANG.Help = [[	Улучшенный классический Prop Hunt режи�
 -- HUD elements
 LANG.HUD = {}
 
-LANG.HUD.HEALTH = "ЗДОРОВЬЕ"
-LANG.HUD.AMMO = "ПАТРОНЫ"
+LANG.HUD.HEALTH = "ЖИЗНЬ"
+LANG.HUD.AMMO = "ПАТР"
 LANG.HUD.TIME = "ВРЕМЯ"
 LANG.HUD.ROUND = "РАУНД"
 
